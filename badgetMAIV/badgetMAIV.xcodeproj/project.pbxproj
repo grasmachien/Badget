@@ -16,6 +16,7 @@
 		6CC053801B1CADD5005F6A8A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC053791B1CADBE005F6A8A /* Alamofire.framework */; };
 		6CC053811B1CADD5005F6A8A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC053791B1CADBE005F6A8A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CC053861B1CAE07005F6A8A /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */; };
+		6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF186451B1CF3290004711E /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		6CC053671B1CAD88005F6A8A /* badgetMAIVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = badgetMAIVTests.swift; sourceTree = "<group>"; };
 		6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		6CF186451B1CF3290004711E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,11 +137,12 @@
 			children = (
 				6CC053511B1CAD88005F6A8A /* AppDelegate.swift */,
 				6CC053561B1CAD88005F6A8A /* ViewController.swift */,
+				6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */,
 				6CC053581B1CAD88005F6A8A /* Images.xcassets */,
 				6CC0535A1B1CAD88005F6A8A /* LaunchScreen.xib */,
 				6CC053531B1CAD88005F6A8A /* badgetMAIV.xcdatamodeld */,
 				6CC0534F1B1CAD88005F6A8A /* Supporting Files */,
-				6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */,
+				6CF186451B1CF3290004711E /* CustomTabBarController.swift */,
 			);
 			path = badgetMAIV;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				6CC053571B1CAD88005F6A8A /* ViewController.swift in Sources */,
 				6CC053521B1CAD88005F6A8A /* AppDelegate.swift in Sources */,
+				6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */,
 				6CC053861B1CAE07005F6A8A /* ChallengeViewController.swift in Sources */,
 				6CC053551B1CAD88005F6A8A /* badgetMAIV.xcdatamodeld in Sources */,
 			);

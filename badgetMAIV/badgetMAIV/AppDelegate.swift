@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainVC = ViewController(nibName: nil, bundle: nil );
         self.navVC = UINavigationController(rootViewController: mainVC);
         
-        self.tabbarVC = UITabBarController()
+        self.tabbarVC = CustomTabBarController()
         self.tabbarVC.viewControllers = [
             navVC,
             ChallengeViewController(nibName:nil, bundle: nil)
@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabbarVC.tabBar.barTintColor = UIColor.yellowColor()
         self.window!.rootViewController = self.tabbarVC;
+        
+        
         
         self.window!.makeKeyAndVisible();
         
