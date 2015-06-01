@@ -1,0 +1,55 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14800\viewh13660\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc
+
+\f0\fs36 \cf0 __Setting up a project__\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b\fs24 \cf0 Project setup vanaf nul: 
+\b0 \
+\
+1) Navigeren naar de project folder via terminal\
+\
+2) 
+\i npm init
+\i0 \
+\
+3) Wizard doorlopen -> genereert de package.json (name, version, description enzo\'85)\
+\
+\'97 next \'97\
+\
+4) De Gruntfile.js kopi\'ebren van een ander project (dit is de beste oplossing zodat je geen fouten maakt)\
+\
+5) Het installeren van de dev - dependencies via 
+\i nmp install\
+	bv. npm install grunt-contrib-compass \'97save-dev \
+
+\i0  \
+\'97 next \'97 \
+\
+6) eerst kopieer je de .bowerrc file in je project (dit is de file die ervoor zorgt dat alle bower components in de folder js/vendor worden geplaatst en niet in een aparte bower_components folder. Dit doen we voor een uniforme workflow dat in alle projecten de components in de js/vendor folder staan.\
+\
+7) 
+\i bower init 
+\i0 -> wizard doorlopen ->cre\'ebert een bower.json file\
+\
+8) bower install <package>#<version> \'97save\
+	
+\i bv. bower install jquery#1 \'97save\
+\
+\'97 
+\i0 last
+\i  \'97 \
+\
+
+\i0 9) Bekijk een vorig project en zorg dat de mappenstructuur klopt van de _hbs, _js, _scss, css, api, classes en dao folder. \
+
+\i \
+
+\i0 10) als de volledige project setup gedaan is en de alle dependencies en library\'92s zijn ge\'efnstalleerd tup je 
+\i grunt 
+\i0 als command in de terminal zodat hij de compass, jsHint enzo opstart en dan kan je beginnen coden! ; - ]\
+}
