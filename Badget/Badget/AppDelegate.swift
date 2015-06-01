@@ -13,10 +13,29 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navVC: UINavigationController!
+    var tabbarVC:UITabBarController!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
+        
+        let mainVC = ViewController(nibName: nil, bundle: nil );
+        self.navVC = UINavigationController(rootViewController: mainVC);
+        
+        self.tabbarVC = UITabBarController()
+        self.tabbarVC.viewControllers = [
+            navVC,
+            ChallengeViewController(nibName:nil, bundle: nil)
+        ]
+        
+        tabbarVC.tabBar.barTintColor = UIColor.yellowColor()
+        self.window!.rootViewController = self.tabbarVC;
+        
+        self.window!.makeKeyAndVisible();
+        
         return true
     }
 

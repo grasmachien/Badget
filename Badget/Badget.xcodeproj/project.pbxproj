@@ -13,6 +13,9 @@
 		6CADFA2A1B1C850B00669BF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CADFA291B1C850B00669BF9 /* Images.xcassets */; };
 		6CADFA2D1B1C850B00669BF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CADFA2B1B1C850B00669BF9 /* LaunchScreen.xib */; };
 		6CADFA391B1C850B00669BF9 /* BadgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADFA381B1C850B00669BF9 /* BadgetTests.swift */; };
+		6CADFA431B1C861400669BF9 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADFA421B1C861400669BF9 /* ChallengeViewController.swift */; };
+		6CADFA531B1C957400669BF9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CADFA4C1B1C956500669BF9 /* Alamofire.framework */; };
+		6CADFA541B1C957400669BF9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CADFA4C1B1C956500669BF9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +26,56 @@
 			remoteGlobalIDString = 6CADFA1C1B1C850B00669BF9;
 			remoteInfo = Badget;
 		};
+		6CADFA4B1B1C956500669BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		6CADFA4D1B1C956500669BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		6CADFA4F1B1C956500669BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		6CADFA511B1C956500669BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		6CADFA551B1C957400669BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6CADFA571B1C957400669BF9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6CADFA541B1C957400669BF9 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6CADFA1D1B1C850B00669BF9 /* Badget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Badget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +88,8 @@
 		6CADFA321B1C850B00669BF9 /* BadgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BadgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CADFA371B1C850B00669BF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CADFA381B1C850B00669BF9 /* BadgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgetTests.swift; sourceTree = "<group>"; };
+		6CADFA421B1C861400669BF9 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CADFA531B1C957400669BF9 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +114,7 @@
 		6CADFA141B1C850B00669BF9 = {
 			isa = PBXGroup;
 			children = (
+				6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */,
 				6CADFA1F1B1C850B00669BF9 /* Badget */,
 				6CADFA351B1C850B00669BF9 /* BadgetTests */,
 				6CADFA1E1B1C850B00669BF9 /* Products */,
@@ -79,6 +135,7 @@
 			children = (
 				6CADFA221B1C850B00669BF9 /* AppDelegate.swift */,
 				6CADFA271B1C850B00669BF9 /* ViewController.swift */,
+				6CADFA421B1C861400669BF9 /* ChallengeViewController.swift */,
 				6CADFA291B1C850B00669BF9 /* Images.xcassets */,
 				6CADFA2B1B1C850B00669BF9 /* LaunchScreen.xib */,
 				6CADFA241B1C850B00669BF9 /* Badget.xcdatamodeld */,
@@ -112,6 +169,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6CADFA451B1C956500669BF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CADFA4C1B1C956500669BF9 /* Alamofire.framework */,
+				6CADFA4E1B1C956500669BF9 /* Alamofire.framework */,
+				6CADFA501B1C956500669BF9 /* Alamofire iOS Tests.xctest */,
+				6CADFA521B1C956500669BF9 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +190,12 @@
 				6CADFA191B1C850B00669BF9 /* Sources */,
 				6CADFA1A1B1C850B00669BF9 /* Frameworks */,
 				6CADFA1B1B1C850B00669BF9 /* Resources */,
+				6CADFA571B1C957400669BF9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6CADFA561B1C957400669BF9 /* PBXTargetDependency */,
 			);
 			name = Badget;
 			productName = Badget;
@@ -179,6 +249,12 @@
 			mainGroup = 6CADFA141B1C850B00669BF9;
 			productRefGroup = 6CADFA1E1B1C850B00669BF9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6CADFA451B1C956500669BF9 /* Products */;
+					ProjectRef = 6CADFA441B1C956500669BF9 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6CADFA1C1B1C850B00669BF9 /* Badget */,
@@ -186,6 +262,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6CADFA4C1B1C956500669BF9 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 6CADFA4B1B1C956500669BF9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6CADFA4E1B1C956500669BF9 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 6CADFA4D1B1C956500669BF9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6CADFA501B1C956500669BF9 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 6CADFA4F1B1C956500669BF9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6CADFA521B1C956500669BF9 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 6CADFA511B1C956500669BF9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6CADFA1B1B1C850B00669BF9 /* Resources */ = {
@@ -213,6 +320,7 @@
 			files = (
 				6CADFA281B1C850B00669BF9 /* ViewController.swift in Sources */,
 				6CADFA261B1C850B00669BF9 /* Badget.xcdatamodeld in Sources */,
+				6CADFA431B1C861400669BF9 /* ChallengeViewController.swift in Sources */,
 				6CADFA231B1C850B00669BF9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +340,11 @@
 			isa = PBXTargetDependency;
 			target = 6CADFA1C1B1C850B00669BF9 /* Badget */;
 			targetProxy = 6CADFA331B1C850B00669BF9 /* PBXContainerItemProxy */;
+		};
+		6CADFA561B1C957400669BF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 6CADFA551B1C957400669BF9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -332,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Badget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -342,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Badget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
