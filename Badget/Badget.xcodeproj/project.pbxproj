@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6CADFA231B1C850B00669BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADFA221B1C850B00669BF9 /* AppDelegate.swift */; };
+		6CADFA261B1C850B00669BF9 /* Badget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CADFA241B1C850B00669BF9 /* Badget.xcdatamodeld */; };
+		6CADFA281B1C850B00669BF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADFA271B1C850B00669BF9 /* ViewController.swift */; };
+		6CADFA2A1B1C850B00669BF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CADFA291B1C850B00669BF9 /* Images.xcassets */; };
+		6CADFA2D1B1C850B00669BF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CADFA2B1B1C850B00669BF9 /* LaunchScreen.xib */; };
+		6CADFA391B1C850B00669BF9 /* BadgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADFA381B1C850B00669BF9 /* BadgetTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6CADFA331B1C850B00669BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CADFA151B1C850B00669BF9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CADFA1C1B1C850B00669BF9;
+			remoteInfo = Badget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6CADFA1D1B1C850B00669BF9 /* Badget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Badget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CADFA211B1C850B00669BF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CADFA221B1C850B00669BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6CADFA251B1C850B00669BF9 /* Badget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Badget.xcdatamodel; sourceTree = "<group>"; };
+		6CADFA271B1C850B00669BF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6CADFA291B1C850B00669BF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6CADFA2C1B1C850B00669BF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6CADFA321B1C850B00669BF9 /* BadgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BadgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CADFA371B1C850B00669BF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CADFA381B1C850B00669BF9 /* BadgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgetTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CADFA1A1B1C850B00669BF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CADFA2F1B1C850B00669BF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CADFA141B1C850B00669BF9 = {
+			isa = PBXGroup;
+			children = (
+				6CADFA1F1B1C850B00669BF9 /* Badget */,
+				6CADFA351B1C850B00669BF9 /* BadgetTests */,
+				6CADFA1E1B1C850B00669BF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6CADFA1E1B1C850B00669BF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CADFA1D1B1C850B00669BF9 /* Badget.app */,
+				6CADFA321B1C850B00669BF9 /* BadgetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CADFA1F1B1C850B00669BF9 /* Badget */ = {
+			isa = PBXGroup;
+			children = (
+				6CADFA221B1C850B00669BF9 /* AppDelegate.swift */,
+				6CADFA271B1C850B00669BF9 /* ViewController.swift */,
+				6CADFA291B1C850B00669BF9 /* Images.xcassets */,
+				6CADFA2B1B1C850B00669BF9 /* LaunchScreen.xib */,
+				6CADFA241B1C850B00669BF9 /* Badget.xcdatamodeld */,
+				6CADFA201B1C850B00669BF9 /* Supporting Files */,
+			);
+			path = Badget;
+			sourceTree = "<group>";
+		};
+		6CADFA201B1C850B00669BF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CADFA211B1C850B00669BF9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CADFA351B1C850B00669BF9 /* BadgetTests */ = {
+			isa = PBXGroup;
+			children = (
+				6CADFA381B1C850B00669BF9 /* BadgetTests.swift */,
+				6CADFA361B1C850B00669BF9 /* Supporting Files */,
+			);
+			path = BadgetTests;
+			sourceTree = "<group>";
+		};
+		6CADFA361B1C850B00669BF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CADFA371B1C850B00669BF9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CADFA1C1B1C850B00669BF9 /* Badget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CADFA3C1B1C850B00669BF9 /* Build configuration list for PBXNativeTarget "Badget" */;
+			buildPhases = (
+				6CADFA191B1C850B00669BF9 /* Sources */,
+				6CADFA1A1B1C850B00669BF9 /* Frameworks */,
+				6CADFA1B1B1C850B00669BF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Badget;
+			productName = Badget;
+			productReference = 6CADFA1D1B1C850B00669BF9 /* Badget.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6CADFA311B1C850B00669BF9 /* BadgetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CADFA3F1B1C850B00669BF9 /* Build configuration list for PBXNativeTarget "BadgetTests" */;
+			buildPhases = (
+				6CADFA2E1B1C850B00669BF9 /* Sources */,
+				6CADFA2F1B1C850B00669BF9 /* Frameworks */,
+				6CADFA301B1C850B00669BF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CADFA341B1C850B00669BF9 /* PBXTargetDependency */,
+			);
+			name = BadgetTests;
+			productName = BadgetTests;
+			productReference = 6CADFA321B1C850B00669BF9 /* BadgetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CADFA151B1C850B00669BF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Brodelet.Matthias;
+				TargetAttributes = {
+					6CADFA1C1B1C850B00669BF9 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					6CADFA311B1C850B00669BF9 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6CADFA1C1B1C850B00669BF9;
+					};
+				};
+			};
+			buildConfigurationList = 6CADFA181B1C850B00669BF9 /* Build configuration list for PBXProject "Badget" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6CADFA141B1C850B00669BF9;
+			productRefGroup = 6CADFA1E1B1C850B00669BF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CADFA1C1B1C850B00669BF9 /* Badget */,
+				6CADFA311B1C850B00669BF9 /* BadgetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CADFA1B1B1C850B00669BF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CADFA2D1B1C850B00669BF9 /* LaunchScreen.xib in Resources */,
+				6CADFA2A1B1C850B00669BF9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CADFA301B1C850B00669BF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CADFA191B1C850B00669BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CADFA281B1C850B00669BF9 /* ViewController.swift in Sources */,
+				6CADFA261B1C850B00669BF9 /* Badget.xcdatamodeld in Sources */,
+				6CADFA231B1C850B00669BF9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CADFA2E1B1C850B00669BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CADFA391B1C850B00669BF9 /* BadgetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CADFA341B1C850B00669BF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CADFA1C1B1C850B00669BF9 /* Badget */;
+			targetProxy = 6CADFA331B1C850B00669BF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6CADFA2B1B1C850B00669BF9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CADFA2C1B1C850B00669BF9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6CADFA3A1B1C850B00669BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6CADFA3B1B1C850B00669BF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6CADFA3D1B1C850B00669BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Badget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6CADFA3E1B1C850B00669BF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Badget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6CADFA401B1C850B00669BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BadgetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Badget.app/Badget";
+			};
+			name = Debug;
+		};
+		6CADFA411B1C850B00669BF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BadgetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Badget.app/Badget";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CADFA181B1C850B00669BF9 /* Build configuration list for PBXProject "Badget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CADFA3A1B1C850B00669BF9 /* Debug */,
+				6CADFA3B1B1C850B00669BF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CADFA3C1B1C850B00669BF9 /* Build configuration list for PBXNativeTarget "Badget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CADFA3D1B1C850B00669BF9 /* Debug */,
+				6CADFA3E1B1C850B00669BF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6CADFA3F1B1C850B00669BF9 /* Build configuration list for PBXNativeTarget "BadgetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CADFA401B1C850B00669BF9 /* Debug */,
+				6CADFA411B1C850B00669BF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6CADFA241B1C850B00669BF9 /* Badget.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6CADFA251B1C850B00669BF9 /* Badget.xcdatamodel */,
+			);
+			currentVersion = 6CADFA251B1C850B00669BF9 /* Badget.xcdatamodel */;
+			path = Badget.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6CADFA151B1C850B00669BF9 /* Project object */;
+}
