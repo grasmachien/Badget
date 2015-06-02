@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "mapButton_highlighted.png"
+      "filename" : "badgeIcon.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "mapButton_highlighted@2x.png"
+      "filename" : "badgeIcon@2x.png"
     }
   ],
   "info" : {

@@ -20,8 +20,8 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
 
-        var middleImage:UIImage = UIImage(named:"mapButton")!
-        var highlightedMiddleImage:UIImage? = UIImage(named:"mapButton_highlighted")!
+        var middleImage:UIImage = UIImage(named:"beercap")!
+        var highlightedMiddleImage:UIImage? = UIImage(named:"beercap")!
         
         
         addCenterButtonWithImage(middleImage, highlightImage: highlightedMiddleImage)

@@ -16,8 +16,8 @@ class ChallengeViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.title = "map"
-        self.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "map-icon"), tag: 1)
+
+        println("challenge view")
         
     }
     
@@ -30,6 +30,11 @@ class ChallengeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
          super.viewDidLoad()
+        
+        let subview = UIView(frame: CGRectMake(30, 100, 200, 150))
+        subview.backgroundColor = UIColor.yellowColor()
+        self.view.addSubview(subview)
+        self.view.backgroundColor = UIColor.blueColor()
        
         
         motionManager.accelerometerUpdateInterval = 0.2
@@ -40,10 +45,17 @@ class ChallengeViewController: UIViewController {
 //
 //        })
         
-        motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(gyroData: CMGyroData!, error: NSError!)in
-            self.outputRotationData(gyroData.rotationRate)
-
-        })
+        if motionManager.gyroAvailable {
+            println("gyro data available")
+            motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(gyroData: CMGyroData!, error: NSError!)in
+                self.outputRotationData(gyroData.rotationRate)
+                
+            })
+        }else{
+            println("gyro data not available")
+        }
+        
+        
         
         
     }
@@ -64,12 +76,17 @@ class ChallengeViewController: UIViewController {
         println(rotation.z)
         
         
+        
+        
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
