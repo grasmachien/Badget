@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreMotion
 
 
 class ChallengeViewController: UIViewController {
+    
+     let motionManager = CMMotionManager()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -23,9 +26,44 @@ class ChallengeViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
+         super.viewDidLoad()
+       
+        
+        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.gyroUpdateInterval = 0.2
+        
+//        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(accelerometerData: CMAccelerometerData!, error:NSError!)in
+//            self.outputAccelerationData(accelerometerData.acceleration)
+//
+//        })
+        
+        motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(gyroData: CMGyroData!, error: NSError!)in
+            self.outputRotationData(gyroData.rotationRate)
+
+        })
+        
+        
+    }
+    
+    func outputAccelerationData(acceleration:CMAcceleration)
+    {
+        println("acceleration")
+        println(acceleration.x)
+        println(acceleration.y)
+        println(acceleration.z)
+    }
+    
+    func outputRotationData(rotation:CMRotationRate)
+    {
+     println("rotation")
+        println(rotation.x)
+        println(rotation.y)
+        println(rotation.z)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -136,13 +136,13 @@
 			isa = PBXGroup;
 			children = (
 				6CC053511B1CAD88005F6A8A /* AppDelegate.swift */,
+				6CF186451B1CF3290004711E /* CustomTabBarController.swift */,
 				6CC053561B1CAD88005F6A8A /* ViewController.swift */,
 				6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */,
 				6CC053581B1CAD88005F6A8A /* Images.xcassets */,
 				6CC0535A1B1CAD88005F6A8A /* LaunchScreen.xib */,
 				6CC053531B1CAD88005F6A8A /* badgetMAIV.xcdatamodeld */,
 				6CC0534F1B1CAD88005F6A8A /* Supporting Files */,
-				6CF186451B1CF3290004711E /* CustomTabBarController.swift */,
 			);
 			path = badgetMAIV;
 			sourceTree = "<group>";
