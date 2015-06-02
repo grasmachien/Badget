@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
-        let mainVC = ViewController(nibName: nil, bundle: nil );
+        let mainVC = ChallengeViewController(nibName: nil, bundle: nil );
         self.navVC = UINavigationController(rootViewController: mainVC);
         
         self.tabbarVC = CustomTabBarController()
         self.tabbarVC.viewControllers = [
+            ViewController(nibName:nil, bundle: nil),
             navVC,
-            ChallengeViewController(nibName:nil, bundle: nil),
             BadgesViewController(nibName:nil, bundle: nil)
         ]
         
