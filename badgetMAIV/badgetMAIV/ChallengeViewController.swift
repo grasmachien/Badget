@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import CoreMotion
-import Alamofire
-import MobileCoreServices
 
 
-class ChallengeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChallengeViewController: UIViewController, UINavigationControllerDelegate {
     
-    var imageView:UIImageView!
-    let motionManager = CMMotionManager()
+    
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -30,86 +27,56 @@ class ChallengeViewController: UIViewController, UIImagePickerControllerDelegate
 
     override func viewDidLoad() {
         
-
         // Do any additional setup after loading the view.
          super.viewDidLoad()
         
-        let subview = UIView(frame: CGRectMake(30, 100, 200, 150))
-        subview.backgroundColor = UIColor.yellowColor()
-        self.view.addSubview(subview)
+        //BUTTON CHALLENGE 1
+        let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button.frame = CGRectMake(100, 100, 100, 50)
+        button.backgroundColor = UIColor.greenColor()
+        button.setTitle("foto", forState: UIControlState.Normal)
+        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(button)
+        
+        //BUTTON CHALLENGE 2
+        let button2   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button2.frame = CGRectMake(100, 200, 100, 50)
+        button2.backgroundColor = UIColor.greenColor()
+        button2.setTitle("game", forState: UIControlState.Normal)
+        button2.addTarget(self, action: "buttonAction2:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(button2)
+        
+        //BUTTON CHALLENGE 3
+        let button3   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button3.frame = CGRectMake(100, 300, 100, 50)
+        button3.backgroundColor = UIColor.greenColor()
+        button3.setTitle("lopen", forState: UIControlState.Normal)
+        button3.addTarget(self, action: "buttonAction3:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(button3)
+        
         self.view.backgroundColor = UIColor.blueColor()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "didClickPhotoCameraIcon")
        
         
-        motionManager.accelerometerUpdateInterval = 0.2
-        motionManager.gyroUpdateInterval = 0.2
-        
-//        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(accelerometerData: CMAccelerometerData!, error:NSError!)in
-//            self.outputAccelerationData(accelerometerData.acceleration)
-//
-//        })
-        
-        if motionManager.gyroAvailable {
-            println("gyro data available")
-            motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(gyroData: CMGyroData!, error: NSError!)in
-                self.outputRotationData(gyroData.rotationRate)
-                
-            })
-        }else{
-            println("gyro data not available")
-        }
         
     }
     
-    func didClickPhotoCameraIcon() {
-        
-        if ( UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) ){
-            //				camera available check
-            println("Camera beschikbaar")
-            
-            let picker = UIImagePickerController()
-            picker.delegate = self
-            var mediaTypes: Array<AnyObject> = [kUTTypeImage]
-            picker.mediaTypes = mediaTypes
-            picker.sourceType = UIImagePickerControllerSourceType.Camera
-            
-            self.presentViewController(picker, animated: true, completion: nil)
-            
-            
-        } else {
-            
-            println("geen cam beschikbaar")
-            
-            let picker = UIImagePickerController()
-            picker.mediaTypes = UIImagePickerController.availableMediaTypesForSourceType(UIImagePickerControllerSourceType.PhotoLibrary)!
-            
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            picker.delegate = self
-            
-            self.presentViewController(picker, animated: true, completion: nil)
-            
-        }
-    }
-    
-    func outputAccelerationData(acceleration:CMAcceleration)
+    func buttonAction(sender:UIButton!)
     {
-        println("acceleration")
-        println(acceleration.x)
-        println(acceleration.y)
-        println(acceleration.z)
+        self.navigationController!.pushViewController(FotoViewController(), animated: true)
     }
     
-    func outputRotationData(rotation:CMRotationRate)
+    func buttonAction2(sender:UIButton!)
     {
-     println("rotation")
-        println(rotation.x)
-        println(rotation.y)
-        println(rotation.z)
-        
-        
-        
-        
+        self.navigationController!.pushViewController(GameViewController(), animated: true)
     }
+    
+    func buttonAction3(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(LoopViewController(), animated: true)
+    }
+    
+    
+    
 
 
     override func didReceiveMemoryWarning() {
@@ -117,75 +84,7 @@ class ChallengeViewController: UIViewController, UIImagePickerControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func urlRequestWithComponents(urlString:String, parameters:Dictionary<String, String>, imageData:NSData) -> (URLRequestConvertible, NSData) {
-        
-        // create url request to send
-        var mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
-        let boundaryConstant = "myRandomBoundary12345";
-        let contentType = "multipart/form-data;boundary="+boundaryConstant
-        mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
-        
-        // create upload data to send
-        let uploadData = NSMutableData()
-        
-        // add image
-        uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        uploadData.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        uploadData.appendData("Content-Type: image/png\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        uploadData.appendData(imageData)
-        
-        // add parameters
-        for (key, value) in parameters {
-            uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
-        }
-        uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        
-        
-        // return URLRequestConvertible and NSData
-        return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
-    }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
-        println("foto genomen")
-        
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        
-        let gekozenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        println(gekozenImage);
-        
-        // init paramters Dictionary
-        var parameters = [
-            "task": "task",
-            "variable1": "var"
-        ]
-        
-        // add addtionial parameters
-        parameters["userId"] = "27"
-        parameters["body"] = "This is the body text."
-        
-        // example image data
-        let image = gekozenImage
-        let imageData = UIImagePNGRepresentation(image)
-        
-        // CREATE AND SEND REQUEST ----------
-        
-        let urlRequest = urlRequestWithComponents("http://192.168.1.7/2014-2015/MAIV/Badget/Badget/site/api/photos", parameters: parameters, imageData: imageData)
-        
-        Alamofire.upload(urlRequest.0, urlRequest.1)
-            .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
-                println("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
-            }
-            .responseJSON { (request, response, JSON, error) in
-                println("REQUEST \(request)")
-                println("RESPONSE \(response)")
-                println("JSON \(JSON)")
-                println("ERROR \(error)")
-        }
-        
-    }
     
     
     
