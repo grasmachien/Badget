@@ -12,8 +12,6 @@ import CoreLocation
 class LoopViewController: UIViewController, CLLocationManagerDelegate {
 
     var locationManager: CLLocationManager!
-    var timer = 10;
-    let redLayer = CALayer()
     var label: UILabel!
     let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton;
     
@@ -37,13 +35,6 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.distanceFilter = 1
         self.locationManager.activityType = CLActivityType.AutomotiveNavigation
         
-        var timerr = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
-        if( timer == 0){
-            timerr.invalidate()
-        }
-
-        setupTimer()
         
         self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
         self.label.center = CGPointMake(160, 284)
@@ -52,37 +43,7 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(self.label)
         
     }
-    
-    func setupTimer() {
-        
-        redLayer.frame = CGRect(x: 320-50, y: 120, width: self.timer, height: 50)
-        redLayer.backgroundColor = UIColor.yellowColor().CGColor
-        self.view.layer.addSublayer(redLayer)
-        
-        
-    }
-    
-    func update() {
-        
-        if( timer > 0){
-        
-            timer--;
-            
-            UIView.animateWithDuration(1.0, animations: {
-                
-                self.redLayer.frame = CGRect(x: 320-50, y: 120, width: self.timer, height: 50)
-                
-            })
-        }
-        
-        println(timer)
-        
-        if (timer == 0){
-//            println("time is up biatch")
-            
-        }
-        
-    }
+
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
        println("De status is veranderd naar \(status.rawValue)")
@@ -117,7 +78,6 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         println("Did update locations: \(lastLocation.coordinate.latitude) - \(lastLocation.coordinate.longitude)")
         
         let locA = CLLocation(latitude: 50.819628, longitude: 3.274238)
-        let locB = CLLocation(latitude: 50.81948, longitude: 3.25773)
         let dist = lastLocation.distanceFromLocation(locA)
         
         println( "De afstand is \(dist)");
