@@ -6,8 +6,9 @@ require_once WWW_ROOT . 'php-image-resize' . DIRECTORY_SEPARATOR . 'ImageResize.
 
 $itemsDAO = new itemsDAO();
 
-$app->post('/photos/?', function() use ($app, $itemsDAO){
+//CLLocation
 
+$app->post('/photos/?', function() use ($app, $itemsDAO){
 
 		header("Content-Type: application/json");
 
@@ -26,7 +27,6 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 
 	  $size = filesize($path);
 
-
 	  /* kijken als file uniek is, anders path hergebruiken */
 
 	  $post["hash"] = md5_file($_FILES['file']['tmp_name']);
@@ -37,12 +37,9 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 	  }else{
 
 	  	if($OGtype == "image/jpeg" || $OGtype == "image/png"){
-	  		echo json_encode("dit is een afbeelding");
-  			$type = "photo";
 
 	 		$post["path"] = 'uploads/'. $name;
 	 		$post["pathbig"] = 'uploads/big/'. $name;
-	 		$post["type"] = 'photo';
 		    $image = new Eventviva\ImageResize($_FILES['file']['tmp_name']);
 
 		    $image->resizeToHeight(500);
@@ -51,17 +48,6 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 	        $image->resizeToHeight(300);
 	        $image->save(WWW_ROOT . $post['path']);
 
-	  	}else if($OGtype == "video/mp4" && $size <=10000000){
-	  		$type = "video";
-
-	  		$post["path"] = 'uploads/'. $name;
-	  		$post["pathbig"] = '';
-	 		$post["type"] = 'video';
-
-	        $filename = $_FILES["image"]["name"].".mp4";
-            $newPath = WWW_ROOT.'uploads'.DS.$name;
-
-            move_uploaded_file($path,$newPath);
 	  	}
 
 	      

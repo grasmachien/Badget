@@ -31,13 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navVC,
             BadgesViewController(nibName:nil, bundle: nil)
         ]
+    
         
         tabbarVC.tabBar.barTintColor = UIColor(red: 0.01, green: 0.08, blue: 0.13, alpha: 1);
         
         self.window!.rootViewController = self.tabbarVC;
-        
-        
-        
         self.window!.makeKeyAndVisible();
         
         return true

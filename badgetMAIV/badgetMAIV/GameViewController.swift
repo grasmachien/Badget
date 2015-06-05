@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SpriteKit
 import CoreMotion
 
 class GameViewController: UIViewController {
     
+    var skView: SKView!
     let motionManager = CMMotionManager()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
@@ -25,51 +27,20 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        motionManager.accelerometerUpdateInterval = 0.2
-        motionManager.gyroUpdateInterval = 0.2
+        let scene = GameScene(size: view.bounds.size)
+        let skView = view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        scene.scaleMode = .ResizeFill
+        skView.presentScene(scene)
         
-        //        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(accelerometerData: CMAccelerometerData!, error:NSError!)in
-        //            self.outputAccelerationData(accelerometerData.acceleration)
-        //
-        //        })
-        
-        if motionManager.gyroAvailable {
-            println("gyro data available")
-            motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: {(gyroData: CMGyroData!, error: NSError!)in
-                self.outputRotationData(gyroData.rotationRate)
-                
-            })
-        }else{
-            println("gyro data not available")
-        }
     }
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func outputAccelerationData(acceleration:CMAcceleration)
-    {
-        println("acceleration")
-        println(acceleration.x)
-        println(acceleration.y)
-        println(acceleration.z)
-    }
-    
-    func outputRotationData(rotation:CMRotationRate)
-    {
-        println("rotation")
-        println(rotation.x)
-        println(rotation.y)
-        println(rotation.z)
-        
-        
-        
-        
     }
     
 

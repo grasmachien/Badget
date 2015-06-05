@@ -113,15 +113,12 @@ class ItemsDAO extends DAO {
 	public function insertimg($data) {
 		$errors = $this->getValidationErrorsimg($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `insp_items` (`path`, `pathbig`, `title`,`user_id`,`hash`,`type`) 
-							VALUES (:path, :pathbig, :title, :user_id, :hash, :type)";
+			$sql = "INSERT INTO `images` (`path`, `pathbig`,`hash`) 
+							VALUES (:path, :pathbig, :hash)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':path', $data['path']);
 			$stmt->bindValue(':pathbig', $data['pathbig']);
-			$stmt->bindValue(':title', $data['description']);
-			$stmt->bindValue(':user_id', $data['user_id']);
 			$stmt->bindValue(':hash', $data['hash']);
-			$stmt->bindValue(':type', $data['type']);
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
 				return $this->selectById($insertedId);
@@ -134,12 +131,6 @@ class ItemsDAO extends DAO {
 		$errors = array();
 		if(empty($data['path'])) {
 			$errors['path'] = 'field path has no value';
-		}
-		if(empty($data['description'])) {
-			$errors['description'] = 'field description has no value';
-		}
-		if(!isset($data['user_id'])) {
-			$errors['user_id'] = 'field user_id has no value';
 		}
 		if(empty($data['hash'])) {
 			$errors['hash'] = 'field hash has no value';

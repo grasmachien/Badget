@@ -23,6 +23,7 @@
 		6CC053801B1CADD5005F6A8A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC053791B1CADBE005F6A8A /* Alamofire.framework */; };
 		6CC053811B1CADD5005F6A8A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC053791B1CADBE005F6A8A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CC053861B1CAE07005F6A8A /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */; };
+		6CE753331B207D8400276DAB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE753321B207D8400276DAB /* GameScene.swift */; };
 		6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF186451B1CF3290004711E /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		6CC053671B1CAD88005F6A8A /* badgetMAIVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = badgetMAIVTests.swift; sourceTree = "<group>"; };
 		6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		6CE753321B207D8400276DAB /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6CF186451B1CF3290004711E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				6CAD883F1B1F39B8004D3A24 /* GameViewController.swift */,
+				6CE753321B207D8400276DAB /* GameScene.swift */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -181,11 +184,19 @@
 			name = lopen;
 			sourceTree = "<group>";
 		};
-		6CC053431B1CAD88005F6A8A = {
+		6CAD884D1B1F66B8004D3A24 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6CAD884B1B1F3F20004D3A24 /* CoreLocation.framework */,
 				6CAD88491B1F3F0E004D3A24 /* MapKit.framework */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		6CC053431B1CAD88005F6A8A = {
+			isa = PBXGroup;
+			children = (
+				6CAD884D1B1F66B8004D3A24 /* frameworks */,
 				6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */,
 				6CC0534E1B1CAD88005F6A8A /* badgetMAIV */,
 				6CC053641B1CAD88005F6A8A /* badgetMAIVTests */,
@@ -397,6 +408,7 @@
 				6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */,
 				6CAD88421B1F3C73004D3A24 /* LoopViewController.swift in Sources */,
 				6CAD88361B1E3AD0004D3A24 /* BadgesViewController.swift in Sources */,
+				6CE753331B207D8400276DAB /* GameScene.swift in Sources */,
 				6CAD883D1B1F37A3004D3A24 /* FotoViewController.swift in Sources */,
 				6CC053521B1CAD88005F6A8A /* AppDelegate.swift in Sources */,
 				6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */,
