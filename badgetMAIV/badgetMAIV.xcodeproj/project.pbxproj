@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CA44D5C1B221CC900BB4E90 /* LoopIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */; };
+		6CA44D611B22256F00BB4E90 /* LoopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */; };
 		6CAD88361B1E3AD0004D3A24 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */; };
 		6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD883A1B1E5259004D3A24 /* InfoSliderView.swift */; };
 		6CAD883D1B1F37A3004D3A24 /* FotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD883C1B1F37A3004D3A24 /* FotoViewController.swift */; };
@@ -87,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopIntroView.swift; sourceTree = "<group>"; };
+		6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopTimerViewController.swift; sourceTree = "<group>"; };
 		6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		6CAD883A1B1E5259004D3A24 /* InfoSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSliderView.swift; sourceTree = "<group>"; };
 		6CAD883C1B1F37A3004D3A24 /* FotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotoViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				6CAD88411B1F3C73004D3A24 /* LoopViewController.swift */,
+				6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */,
+				6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */,
 			);
 			name = lopen;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				6CAD88401B1F39B8004D3A24 /* GameViewController.swift in Sources */,
 				6CC053571B1CAD88005F6A8A /* ViewController.swift in Sources */,
 				6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */,
+				6CA44D5C1B221CC900BB4E90 /* LoopIntroView.swift in Sources */,
 				6CAD88421B1F3C73004D3A24 /* LoopViewController.swift in Sources */,
 				6CAD88361B1E3AD0004D3A24 /* BadgesViewController.swift in Sources */,
 				6CE753331B207D8400276DAB /* GameScene.swift in Sources */,
@@ -413,6 +420,7 @@
 				6CC053521B1CAD88005F6A8A /* AppDelegate.swift in Sources */,
 				6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */,
 				6CC053861B1CAE07005F6A8A /* ChallengeViewController.swift in Sources */,
+				6CA44D611B22256F00BB4E90 /* LoopTimerViewController.swift in Sources */,
 				6CC053551B1CAD88005F6A8A /* badgetMAIV.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

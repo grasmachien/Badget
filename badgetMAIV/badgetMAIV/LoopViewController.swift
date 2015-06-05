@@ -14,6 +14,8 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var timer = 10;
     let redLayer = CALayer()
+    var label: UILabel!
+    let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton;
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -43,12 +45,18 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
 
         setupTimer()
         
+        self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        self.label.center = CGPointMake(160, 284)
+        self.label.textAlignment = NSTextAlignment.Center
+        self.label.text = "I'am a test label"
+        self.view.addSubview(self.label)
+        
     }
     
     func setupTimer() {
         
         redLayer.frame = CGRect(x: 320-50, y: 120, width: self.timer, height: 50)
-        redLayer.backgroundColor = UIColor.redColor().CGColor
+        redLayer.backgroundColor = UIColor.yellowColor().CGColor
         self.view.layer.addSublayer(redLayer)
         
         
@@ -114,11 +122,30 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         
         println( "De afstand is \(dist)");
         
+        
         if(dist < 15){
+            
             println("je kan de challenge starten!")
+            self.label.text = "ok! \(round(dist))"
+            
+            button.frame = CGRectMake(100, 100, 100, 50)
+            button.backgroundColor = UIColor.greenColor()
+            button.setTitle("Begin!", forState: UIControlState.Normal)
+            button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(button)
+            
         }else{
             println("begeef je naar de maes stand!")
+            self.label.text = "denied! \(round(dist))"
+            button.removeFromSuperview()
         }
+        
+    }
+    
+    func buttonAction(sender:UIButton!)
+    {
+        self.locationManager.stopUpdatingLocation()
+        self.navigationController!.pushViewController(LoopTimerViewController(), animated: true)
     }
     
     func startUpdatingLocation(){
@@ -140,6 +167,12 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func loadView(){
+        
+        var bounds = UIScreen.mainScreen().bounds;
+        self.view = LoopIntroView(frame:bounds);
     }
     
 
