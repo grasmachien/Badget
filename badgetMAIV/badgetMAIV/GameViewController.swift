@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     let motionManager = CMMotionManager()
     let pint = UIImageView()
     var timerr = NSTimer()
+    var timerrstart = NSTimer()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -31,25 +32,28 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         var randomRot: Double;
-        randomRot = 100;
+        randomRot = 0;
         
-        var timerken = NSTimer.schedule(repeatInterval: 3) { timer in
+        var teller:Int;
+        teller = 0;
+        
+        self.timerr = NSTimer.schedule(repeatInterval: 3) { timer in
             
-            var aRandomInt = Int.random(-0...10)
+            var aRandomInt = Int.random(-10...10)
             var bewerkteRandomint:Double = Double(aRandomInt) / 10;
-            println(bewerkteRandomint)
+            println("RANDOM IS \(bewerkteRandomint)")
             randomRot = bewerkteRandomint;
+            
+            if(teller < 1){
+                teller++
+            }
+    
         }
-
-
         
         self.pint.image = UIImage(named: "pint")
         self.pint.frame = CGRectMake(20, 250, 275, 377)
         self.pint.layer.anchorPoint = CGPointMake(0.5, 1.0);
         self.view.addSubview(pint)
-        
-        motionManager.accelerometerUpdateInterval = 0.2
-        motionManager.gyroUpdateInterval = 0.2
         
         
         if motionManager.deviceMotionAvailable {
@@ -58,8 +62,32 @@ class GameViewController: UIViewController {
                 [weak self] (data: CMDeviceMotion!, error: NSError!) in
                 
                 let rotation = atan2(data.gravity.x, data.gravity.y) - M_PI
-                //println(rotation);
-                self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation - randomRot))
+                println(-rotation - randomRot);
+                
+                var resRot = -rotation - randomRot;
+                
+                UIView.animateWithDuration(0.2, animations: {
+                    // animating `transform` allows us to change 2D geometry of the object
+                    // like `scale`, `rotation` or `translate`
+                    self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(resRot))
+                })
+                
+                if(teller == 1){
+                    
+                    if(resRot < -0.9){
+                        println("game over LINKS")
+                        self!.motionManager.stopDeviceMotionUpdates()
+                        self?.timerr.invalidate()
+                    }
+                    
+                    if(resRot > 0.9){
+                        println("game over RECHTS")
+                        self!.motionManager.stopDeviceMotionUpdates()
+                        self?.timerr.invalidate()
+                    }
+                    
+                }
+                
             }
         }
         
