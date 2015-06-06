@@ -12,8 +12,9 @@ import CoreMotion
 
 class GameViewController: UIViewController {
     
-    var skView: SKView!
+
     let motionManager = CMMotionManager()
+    let pint = UIImageView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -28,20 +29,30 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene(size: view.bounds.size)
-        let skView = view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.ignoresSiblingOrder = true
-        scene.scaleMode = .ResizeFill
-        skView.presentScene(scene)
+        
+        self.pint.image = UIImage(named: "pint")
+        self.pint.frame = CGRectMake(20, 250, 275, 377)
+        self.pint.layer.anchorPoint = CGPointMake(0.5, 1.0);
+        self.view.addSubview(pint)
+        
+        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.gyroUpdateInterval = 0.2
+        
+        
+        if motionManager.deviceMotionAvailable {
+            motionManager.deviceMotionUpdateInterval = 0.01
+            motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
+                [weak self] (data: CMDeviceMotion!, error: NSError!) in
+                
+                let rotation = atan2(data.gravity.x, data.gravity.y) - M_PI
+                self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
+            }
+        }
+        
         
     }
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
     
 
     /*
