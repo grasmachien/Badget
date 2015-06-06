@@ -25,6 +25,7 @@
 		6CC053801B1CADD5005F6A8A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC053791B1CADBE005F6A8A /* Alamofire.framework */; };
 		6CC053811B1CADD5005F6A8A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC053791B1CADBE005F6A8A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CC053861B1CAE07005F6A8A /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */; };
+		6CC3F3DB1B2393BF00C18C1D /* extensionTImer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3F3DA1B2393BF00C18C1D /* extensionTImer.swift */; };
 		6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF186451B1CF3290004711E /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		6CC053671B1CAD88005F6A8A /* badgetMAIVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = badgetMAIVTests.swift; sourceTree = "<group>"; };
 		6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		6CC053851B1CAE07005F6A8A /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		6CC3F3DA1B2393BF00C18C1D /* extensionTImer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionTImer.swift; sourceTree = "<group>"; };
 		6CF186451B1CF3290004711E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,7 @@
 				6CC0535A1B1CAD88005F6A8A /* LaunchScreen.xib */,
 				6CC053531B1CAD88005F6A8A /* badgetMAIV.xcdatamodeld */,
 				6CC0534F1B1CAD88005F6A8A /* Supporting Files */,
+				6CC3F3DA1B2393BF00C18C1D /* extensionTImer.swift */,
 			);
 			path = badgetMAIV;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			files = (
 				6CAD88401B1F39B8004D3A24 /* GameViewController.swift in Sources */,
 				6CC053571B1CAD88005F6A8A /* ViewController.swift in Sources */,
+				6CC3F3DB1B2393BF00C18C1D /* extensionTImer.swift in Sources */,
 				6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */,
 				6CA44D5C1B221CC900BB4E90 /* LoopIntroView.swift in Sources */,
 				6CAD88421B1F3C73004D3A24 /* LoopViewController.swift in Sources */,

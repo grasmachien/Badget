@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SpriteKit
 import CoreMotion
 
 class GameViewController: UIViewController {
@@ -15,6 +14,7 @@ class GameViewController: UIViewController {
 
     let motionManager = CMMotionManager()
     let pint = UIImageView()
+    var timerr = NSTimer()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -23,12 +23,25 @@ class GameViewController: UIViewController {
     }
 
     required init(coder aDecoder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var randomRot: Double;
+        randomRot = 100;
+        
+        var timerken = NSTimer.schedule(repeatInterval: 3) { timer in
+            
+            var aRandomInt = Int.random(-0...10)
+            var bewerkteRandomint:Double = Double(aRandomInt) / 10;
+            println(bewerkteRandomint)
+            randomRot = bewerkteRandomint;
+        }
+
+
         
         self.pint.image = UIImage(named: "pint")
         self.pint.frame = CGRectMake(20, 250, 275, 377)
@@ -45,7 +58,8 @@ class GameViewController: UIViewController {
                 [weak self] (data: CMDeviceMotion!, error: NSError!) in
                 
                 let rotation = atan2(data.gravity.x, data.gravity.y) - M_PI
-                self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
+                //println(rotation);
+                self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation - randomRot))
             }
         }
         
