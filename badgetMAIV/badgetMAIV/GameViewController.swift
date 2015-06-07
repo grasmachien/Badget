@@ -28,8 +28,18 @@ class GameViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden == true
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return UIStatusBarAnimation.Fade
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: false) 
         
         var randomRot: Double;
         randomRot = 0;
@@ -39,7 +49,7 @@ class GameViewController: UIViewController {
         
         self.timerr = NSTimer.schedule(repeatInterval: 3) { timer in
             
-            var aRandomInt = Int.random(-10...10)
+            var aRandomInt = Int.random(0...10)
             var bewerkteRandomint:Double = Double(aRandomInt) / 10;
             println("RANDOM IS \(bewerkteRandomint)")
             randomRot = bewerkteRandomint;
@@ -62,28 +72,34 @@ class GameViewController: UIViewController {
                 [weak self] (data: CMDeviceMotion!, error: NSError!) in
                 
                 let rotation = atan2(data.gravity.x, data.gravity.y) - M_PI
-                println(-rotation - randomRot);
+                
+                println("ROTATION IS \(rotation)")
                 
                 var resRot = -rotation - randomRot;
+                
+                
+                println("AANGEPASTE ROTATIE \(resRot)");
                 
                 UIView.animateWithDuration(0.2, animations: {
                     // animating `transform` allows us to change 2D geometry of the object
                     // like `scale`, `rotation` or `translate`
-                    self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(resRot))
+                    
+                    if(rotation < -4){
+                        println(" links")
+                        self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-resRot))
+                    }else{
+                        self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(resRot))
+                    }
+                    
                 })
                 
                 if(teller == 1){
                     
-                    if(resRot < -0.9){
-                        println("game over LINKS")
+                    if(resRot < -1 && resRot > -5.4){
+                        println("game over")
                         self!.motionManager.stopDeviceMotionUpdates()
                         self?.timerr.invalidate()
-                    }
-                    
-                    if(resRot > 0.9){
-                        println("game over RECHTS")
-                        self!.motionManager.stopDeviceMotionUpdates()
-                        self?.timerr.invalidate()
+
                     }
                     
                 }

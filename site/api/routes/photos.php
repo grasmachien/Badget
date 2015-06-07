@@ -6,7 +6,6 @@ require_once WWW_ROOT . 'php-image-resize' . DIRECTORY_SEPARATOR . 'ImageResize.
 
 $itemsDAO = new itemsDAO();
 
-//CLLocation
 
 $app->post('/photos/?', function() use ($app, $itemsDAO){
 
@@ -17,6 +16,8 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 	  if(empty($post)){
 	  	$post = (array) json_decode($app->request()->getBody());
 	  }
+
+
 
 	  $parts = explode('.', $_FILES['file']['name']);
 	  $ext = $parts[sizeof($parts)-1];

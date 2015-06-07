@@ -7,15 +7,40 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ChallengeViewController: UIViewController, UINavigationControllerDelegate {
     
+    var appDelegate:AppDelegate {
+        get {
+            return UIApplication.sharedApplication().delegate as! AppDelegate
+        }
+    }
+
+    var username = [NSManagedObject]()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.returnsObjectsAsFaults = false
+        let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
+        fetchRequest.sortDescriptors = [sortNameAscending]
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var error:NSError?
+        username = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+    
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         self.title = "Challenges"
         println("challenge view")
         
     }
+    
+
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -25,6 +50,20 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         
         // Do any additional setup after loading the view.
          super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        if(username.isEmpty){
+            println("geen naam ingevoerd")
+            self.navigationController!.pushViewController(AddNameTableViewController(), animated: true)
+            
+            
+        }else{
+            println("je naam is \(username)")
+            
+            
+        }
+
         
         //BUTTON CHALLENGE 1
         let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
@@ -79,6 +118,8 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     
     
