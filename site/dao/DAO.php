@@ -2,7 +2,7 @@
 class DAO {
 
 	private static $dbHost = "localhost";
-	private static $dbName = "inspiration";
+	private static $dbName = "badget";
 	private static $dbUser = "root";
 	private static $dbPass = "root";
 

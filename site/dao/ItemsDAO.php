@@ -113,7 +113,7 @@ class ItemsDAO extends DAO {
 	public function insertimg($data) {
 		$errors = $this->getValidationErrorsimg($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `images` (`path`, `pathbig`,`hash`) 
+			$sql = "INSERT INTO `badget_img` (`path`, `pathbig`,`hash`) 
 							VALUES (:path, :pathbig, :hash)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':path', $data['path']);

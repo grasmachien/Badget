@@ -112,6 +112,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         picker.dismissViewControllerAnimated(true, completion: nil)
         
         let gekozenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
         println(gekozenImage);
         
         
@@ -122,17 +123,14 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             "variable1": "var"
         ]
         
-        // add addtionial parameters
-        parameters["userId"] = "27"
-        parameters["body"] = "This is the body text."
-        
         // example image data
         let image = gekozenImage
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.lowestQualityJPEGNSData
+        //let imageData = UIImagePNGRepresentation(image)
         
         // CREATE AND SEND REQUEST ----------
         
-        let urlRequest = urlRequestWithComponents("http://192.168.1.2/2014-2015/MAIV/Badget/Badget/site/api/photos", parameters: parameters, imageData: imageData)
+        let urlRequest = urlRequestWithComponents("http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/photos", parameters: parameters, imageData: imageData)
         
         Alamofire.upload(urlRequest.0, urlRequest.1)
             .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in

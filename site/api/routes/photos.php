@@ -9,15 +9,13 @@ $itemsDAO = new itemsDAO();
 
 $app->post('/photos/?', function() use ($app, $itemsDAO){
 
-		header("Content-Type: application/json");
+	  header("Content-Type: application/json");
 
-	   $post = $app->request->post();
+	  $post = $app->request->post();
 
 	  if(empty($post)){
 	  	$post = (array) json_decode($app->request()->getBody());
 	  }
-
-
 
 	  $parts = explode('.', $_FILES['file']['name']);
 	  $ext = $parts[sizeof($parts)-1];
@@ -25,17 +23,16 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 	  $OGtype = ($_FILES["file"]["type"]);
 	  
 	  $path = $_FILES["file"]["tmp_name"];
-
 	  $size = filesize($path);
 
 	  /* kijken als file uniek is, anders path hergebruiken */
 
 	  $post["hash"] = md5_file($_FILES['file']['tmp_name']);
-	  $existing = $itemsDAO->selectByHash($post["hash"]);
+	  // $existing = $itemsDAO->selectByHash($post["hash"]);
 
-	  if(!empty($existing)){
-	      $post["path"] = $existing["path"];
-	  }else{
+	  // if(!empty($existing)){
+	  //     $post["path"] = $existing["path"];
+	  // }else{
 
 	  	if($OGtype == "image/jpeg" || $OGtype == "image/png"){
 
@@ -52,11 +49,11 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 	  	}
 
 	      
-	  }
+	  //}
 
 	  /* --- */
 
-	  //echo json_encode($itemsDAO->insertimg($post), JSON_NUMERIC_CHECK);
+	  echo json_encode($itemsDAO->insertimg($post), JSON_NUMERIC_CHECK);
 
 	  exit();
 
