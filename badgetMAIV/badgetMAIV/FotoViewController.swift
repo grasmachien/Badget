@@ -13,6 +13,7 @@ import MobileCoreServices
 class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imageView:UIImageView!
+    let progressBar = CALayer()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -34,6 +35,10 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         button.setTitle("start", forState: UIControlState.Normal)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
+        
+        progressBar.frame = CGRect(x: 0, y: 60, width: 0, height: 30)
+        progressBar.backgroundColor = UIColor.yellowColor().CGColor
+        self.view.layer.addSublayer(progressBar)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +48,8 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func buttonAction(sender:UIButton!)
     {
+        
+        
         
         println("foto tapped1")
         
@@ -125,16 +132,23 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // example image data
         let image = gekozenImage
-        let imageData = image.lowestQualityJPEGNSData
+        let imageData = image.mediumQualityJPEGNSData
         //let imageData = UIImagePNGRepresentation(image)
         
         // CREATE AND SEND REQUEST ----------
         
-        let urlRequest = urlRequestWithComponents("http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/photos", parameters: parameters, imageData: imageData)
+        //let urlRequest = urlRequestWithComponents("http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/photos", parameters: parameters, imageData: imageData)
+        let urlRequest = urlRequestWithComponents("http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/photos", parameters: parameters, imageData: imageData)
         
         Alamofire.upload(urlRequest.0, urlRequest.1)
             .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
                 println("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+                var progress:Double = Double(totalBytesWritten)/Double(totalBytesExpectedToWrite)*100;
+                println("progress is \(progress)")
+                var progressData = progress*3.2;
+        
+                self.progressBar.frame = CGRect(x:0, y: 60, width: progressData, height: 30);
+                
             }
             .responseJSON { (request, response, JSON, error) in
                 println("REQUEST \(request)")

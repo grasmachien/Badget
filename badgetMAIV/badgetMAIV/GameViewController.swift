@@ -8,16 +8,50 @@
 
 import UIKit
 import CoreMotion
+import CoreData
+import Alamofire
 
 class GameViewController: UIViewController {
+    
+    var appDelegate:AppDelegate {
+        get {
+            return UIApplication.sharedApplication().delegate as! AppDelegate
+        }
+    }
+    
+    var userData = [NSManagedObject]()
     
 
     let motionManager = CMMotionManager()
     let pint = UIImageView()
     var timerr = NSTimer()
     var timerrstart = NSTimer()
+    var username:String = "";
+
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.returnsObjectsAsFaults = false
+        let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
+        fetchRequest.sortDescriptors = [sortNameAscending]
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var error:NSError?
+        userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        
+        
+        for data in userData as [NSManagedObject] {
+            
+            username = data.valueForKey("naaam")! as! String
+            
+        }
+        
+        
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         self.title = "game"
         
@@ -83,22 +117,33 @@ class GameViewController: UIViewController {
                 UIView.animateWithDuration(0.2, animations: {
                     // animating `transform` allows us to change 2D geometry of the object
                     // like `scale`, `rotation` or `translate`
-                    
-                    if(rotation < -4){
-                        println(" links")
-                        self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-resRot))
-                    }else{
-                        self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(resRot))
-                    }
+                
+                        self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
+
                     
                 })
                 
                 if(teller == 1){
                     
-                    if(resRot < -1 && resRot > -5.4){
+                    if(rotation < -1 && rotation > -5.4){
                         println("game over")
                         self!.motionManager.stopDeviceMotionUpdates()
                         self?.timerr.invalidate()
+
+    
+                        let parameter = [
+                            "tijd": "111",
+                            "spel": "versus",
+                            "username": self!.username
+                        ]
+                        
+                        Alamofire.request(.POST, "http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/data", parameters: parameter)
+                            .responseJSON { (request, response, JSON, error) in
+                                println("REQUEST \(request)")
+                                println("RESPONSE \(response)")
+                                println("JSON \(JSON)")
+                                println("ERROR \(error)")
+                        }
 
                     }
                     

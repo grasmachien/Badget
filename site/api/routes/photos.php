@@ -52,7 +52,7 @@ $app->post('/photos/?', function() use ($app, $itemsDAO){
 	  //}
 
 	  /* --- */
-
+	  
 	  echo json_encode($itemsDAO->insertimg($post), JSON_NUMERIC_CHECK);
 
 	  exit();

@@ -13,10 +13,9 @@ require_once WWW_ROOT. "api" .DIRECTORY_SEPARATOR. 'Slim'. DIRECTORY_SEPARATOR .
 
 $app = new \Slim\Slim();
 
-
-
 require_once WWW_ROOT. "api/routes" .DIRECTORY_SEPARATOR. 'items.php';
 require_once WWW_ROOT. "api/routes" .DIRECTORY_SEPARATOR. 'photos.php';
+require_once WWW_ROOT. "api/routes" .DIRECTORY_SEPARATOR. 'data.php';
 require_once WWW_ROOT. "api/routes" .DIRECTORY_SEPARATOR. 'users.php';
 
 

@@ -127,6 +127,20 @@ class ItemsDAO extends DAO {
 		return false;
 	}
 
+	public function insertData($data) {
+			$sql = "INSERT INTO `badget_data` (`spel`, `score`, `username`) 
+							VALUES (:spel, :score, :username)";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindValue(':spel', $data['spel']);
+			$stmt->bindValue(':score', $data['tijd']);
+			$stmt->bindValue(':username', $data['username']);
+			if($stmt->execute()) {
+				$insertedId = $this->pdo->lastInsertId();
+				return $this->selectById($insertedId);
+			}
+		return false;
+	}
+
 	public function getValidationErrorsimg($data) {
 		$errors = array();
 		if(empty($data['path'])) {

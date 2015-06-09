@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 class LoopViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -41,6 +42,8 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         self.label.textAlignment = NSTextAlignment.Center
         self.label.text = "I'am a test label"
         self.view.addSubview(self.label)
+        
+        
         
     }
 

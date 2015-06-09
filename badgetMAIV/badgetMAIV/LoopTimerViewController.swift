@@ -8,9 +8,18 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import CoreData
 
 class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
     
+    var appDelegate:AppDelegate {
+        get {
+            return UIApplication.sharedApplication().delegate as! AppDelegate
+        }
+    }
+    
+    var username = [NSManagedObject]()
     var locationManager: CLLocationManager!
     var seconden = 60;
     let redLayer = CALayer()
@@ -19,6 +28,17 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
     var labelTimeUp: UILabel!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.returnsObjectsAsFaults = false
+        let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
+        fetchRequest.sortDescriptors = [sortNameAscending]
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var error:NSError?
+        username = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         self.title = "lopen"
         
@@ -130,6 +150,16 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         if(dist < 10){
             self.label.text = "ja je bent er domme kut! \(round(dist)) \(seconden)"
             self.timerr.invalidate()
+            
+            println("stuur je tijd nr de database")
+            var sec = String(seconden)
+            let parameter = [
+                "tijd": sec,
+                "spel": "snellerdanjepint",
+            ]
+            
+            Alamofire.request(.POST, "http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/data/snellerdanjepint", parameters: parameter)
+            
         }else{
             self.label.text = "verder lopen kut! \(round(dist)) \(seconden)"
         }
