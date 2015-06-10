@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import MobileCoreServices
+import CoreData
 
 class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -29,16 +30,30 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         // Do any additional setup after loading the view.
         
+        let imageViewBack = UIImageView(image: UIImage(named: "introVerdedig"))
+        self.view.addSubview(imageViewBack)
+        
         let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.frame = CGRectMake(100, 100, 100, 50)
-        button.backgroundColor = UIColor.greenColor()
-        button.setTitle("start", forState: UIControlState.Normal)
+        button.frame = CGRectMake(50, 390, 220, 32)
+        button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        button.setTitle("Challenge Starten", forState: UIControlState.Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
+        
+        let backbutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        backbutton.frame = CGRectMake(50, 440, 220, 32)
+        backbutton.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        backbutton.setTitle("Terug naar overzicht", forState: UIControlState.Normal)
+        backbutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        backbutton.addTarget(self, action: "buttonActionBack:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(backbutton)
         
         progressBar.frame = CGRect(x: 0, y: 60, width: 0, height: 30)
         progressBar.backgroundColor = UIColor.yellowColor().CGColor
         self.view.layer.addSublayer(progressBar)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,9 +61,14 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Dispose of any resources that can be recreated.
     }
     
+    func buttonActionBack(sender:UIButton!)
+    {
+        self.navigationController?.popViewControllerAnimated(true);
+    
+    }
+    
     func buttonAction(sender:UIButton!)
     {
-        
         
         
         println("foto tapped1")
@@ -156,6 +176,10 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 println("JSON \(JSON)")
                 println("ERROR \(error)")
         }
+        
+        let resultFoto = ResultaatFotoViewController()
+        resultFoto.dataFromImage = gekozenImage
+        self.navigationController!.pushViewController(resultFoto,animated: true)
         
     }
     

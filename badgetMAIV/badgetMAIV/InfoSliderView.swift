@@ -25,9 +25,14 @@ class InfoSliderView: UIView {
         self.scrollView = UIScrollView(frame: frame)
         super.init(frame: frame)
         
+        let imageViewBack = UIImageView(image: UIImage(named: "infoBack"))
+        self.addSubview(imageViewBack)
+        
         self.addSubview(self.scrollView)
         
-        var images = ["1":"splashscreen","2":"splashscreen"];
+        
+        
+        var images = ["1":"info2","2":"splashscreen","3":"info3"];
         self.createImageViews(images)
         
     }

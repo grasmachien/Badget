@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         
-        self.tabBarItem = UITabBarItem(title: "list", image: UIImage(named: "list-icon"), tag: 2)
+        self.tabBarItem = UITabBarItem(title: "info", image: UIImage(named: "infoIcon"), tag: 2)
         
     }
     

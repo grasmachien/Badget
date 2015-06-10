@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "beercap.png"
+      "filename" : "backbadges.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "beercap@2x.png"
+      "filename" : "backbadges@2x.png"
     }
   ],
   "info" : {

@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import Alamofire
 
 class LoopViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -28,6 +27,11 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageViewBack = UIImageView(image: UIImage(named: "backsnelpint"))
+        self.view.addSubview(imageViewBack)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         // Do any additional setup after loading the view.
         

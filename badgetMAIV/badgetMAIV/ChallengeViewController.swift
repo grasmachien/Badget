@@ -23,6 +23,8 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         
         
+        
+        
         let fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.returnsObjectsAsFaults = false
         let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
@@ -32,14 +34,15 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         
         var error:NSError?
         username = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        
+        
     
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         self.title = "Challenges"
-        println("challenge view")
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
     }
-    
 
     
     required init(coder aDecoder: NSCoder) {
@@ -51,7 +54,8 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         // Do any additional setup after loading the view.
          super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         
         if(username.isEmpty){
             println("geen naam ingevoerd")
@@ -61,31 +65,26 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         }else{
             println("je naam is \(username)")
             
-            
         }
-
         
         //BUTTON CHALLENGE 1
         let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.frame = CGRectMake(100, 100, 100, 50)
-        button.backgroundColor = UIColor.greenColor()
-        button.setTitle("foto", forState: UIControlState.Normal)
+        button.frame = CGRectMake(0, 10, 320, 170)
+        button.setBackgroundImage(UIImage(named: "challenge1btn"), forState: UIControlState.Normal)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
         
         //BUTTON CHALLENGE 2
         let button2   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button2.frame = CGRectMake(100, 200, 100, 50)
-        button2.backgroundColor = UIColor.greenColor()
-        button2.setTitle("game", forState: UIControlState.Normal)
+        button2.frame = CGRectMake(0, 180, 320,170)
+        button2.setBackgroundImage(UIImage(named: "challenge2Btn"), forState: UIControlState.Normal)
         button2.addTarget(self, action: "buttonAction2:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button2)
         
         //BUTTON CHALLENGE 3
         let button3   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button3.frame = CGRectMake(100, 300, 100, 50)
-        button3.backgroundColor = UIColor.greenColor()
-        button3.setTitle("lopen", forState: UIControlState.Normal)
+        button3.frame = CGRectMake(0, 350, 320, 170)
+        button3.setBackgroundImage(UIImage(named: "challenge3Btn"), forState: UIControlState.Normal)
         button3.addTarget(self, action: "buttonAction3:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button3)
         
@@ -97,17 +96,19 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
     
     func buttonAction(sender:UIButton!)
     {
-        self.navigationController!.pushViewController(FotoViewController(), animated: true)
+        self.navigationController!.pushViewController(LoopViewController(), animated: true)
     }
     
     func buttonAction2(sender:UIButton!)
     {
-        self.navigationController!.pushViewController(GameViewController(), animated: true)
+        self.navigationController!.pushViewController(FotoViewController(), animated: true)
+        
     }
     
     func buttonAction3(sender:UIButton!)
     {
-        self.navigationController!.pushViewController(LoopViewController(), animated: true)
+        self.navigationController!.pushViewController(GameViewController(), animated: true)
+        
     }
     
     

@@ -24,7 +24,8 @@ class BadgesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.greenColor()
+        let imageViewBack = UIImageView(image: UIImage(named: "backbadges"))
+        self.view.addSubview(imageViewBack)
 
         // Do any additional setup after loading the view.
     }

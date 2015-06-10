@@ -50,8 +50,6 @@ class GameViewController: UIViewController {
             
         }
         
-        
-        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         self.title = "game"
         
@@ -73,7 +71,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: false) 
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: false)
+        
+        let imageViewBack = UIImageView(image: UIImage(named: "backstabieler"))
+        self.view.addSubview(imageViewBack)
         
         var randomRot: Double;
         randomRot = 0;
