@@ -24,19 +24,12 @@ class ResultaatFotoViewController: UIViewController {
         if let myData = self.dataFromImage {
             // do something with myData
             
-//            var imgwidth = self.dataFromImage!.size.width;
-//            var imgheight = self.dataFromImage!.size.height;
-//            var ratio = imgwidth/imgheight;
-//            
-//            var newWidth = imgwidth/imgwidth*200;
-//            var newHeight = imgheight/imgheight*200;
-            
-            
-            let imageViewBacck = UIImageView(image: self.dataFromImage!)
-            imageViewBacck.frame = CGRect(x: 0, y: 150, width: self.dataFromImage!.size.width, height: self.dataFromImage!.size.height)
+            var imageViewBacck = UIImageView(image: self.dataFromImage!)
+            imageViewBacck.contentMode = UIViewContentMode.ScaleAspectFit
+            imageViewBacck.frame = CGRect(x: 0, y: 80, width: 200, height: 200)
+            var center = (self.view.bounds.size.width - imageViewBacck.frame.size.width) / 2.0
+            imageViewBacck.frame = CGRect(x: center, y: 80, width: 200, height: 200)
             self.view.addSubview(imageViewBacck)
-            println("toon de binnengekomen data")
-            println(self.dataFromImage)
             
         } else {
             // no data was obtained

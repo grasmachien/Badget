@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        application.statusBarHidden = true
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
         let mainVC = ChallengeViewController(nibName: nil, bundle: nil );

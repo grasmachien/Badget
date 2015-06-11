@@ -128,8 +128,8 @@ class GameViewController: UIViewController {
                     
                     if(rotation < -1 && rotation > -5.4){
                         println("game over")
-                        self!.motionManager.stopDeviceMotionUpdates()
-                        self?.timerr.invalidate()
+//                        self!.motionManager.stopDeviceMotionUpdates()
+//                        self?.timerr.invalidate()
 
     
                         let parameter = [

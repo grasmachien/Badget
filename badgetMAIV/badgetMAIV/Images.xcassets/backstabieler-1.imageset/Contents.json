@@ -3,16 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "introVerdedig.png"
+      "filename" : "backstabieler.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "introVerdedig@2x.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "backstabieler@2x.png"
     }
   ],
   "info" : {

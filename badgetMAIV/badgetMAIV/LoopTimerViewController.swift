@@ -51,7 +51,8 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.greenColor()
+        let imageViewBack = UIImageView(image: UIImage(named: "backsnelpint"))
+        self.view.addSubview(imageViewBack)
         
         self.locationManager = CLLocationManager()
         self.locationManager.delegate = self
@@ -62,12 +63,14 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         self.label.center = CGPointMake(160, 284)
         self.label.textAlignment = NSTextAlignment.Center
         self.label.text = "I'am a test label"
+        self.label.textColor = UIColor.whiteColor()
         self.view.addSubview(self.label)
         
         self.labelTimeUp = UILabel(frame: CGRectMake(0, 0, 200, 21))
         self.labelTimeUp.center = CGPointMake(160, 184)
         self.labelTimeUp.textAlignment = NSTextAlignment.Center
         self.labelTimeUp.text = "I'am a test label"
+        self.labelTimeUp.textColor = UIColor.whiteColor()
         self.view.addSubview(self.labelTimeUp)
         
         self.timerr = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
@@ -101,7 +104,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         println(seconden)
         
         if (seconden == 0){
-            println("time is up biatch")
+            println("time is up")
             self.timerr.invalidate()
             self.labelTimeUp.text = "te laat! \(seconden)"
             
@@ -147,11 +150,10 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         println( "De afstand is \(dist)");
         
         
-        if(dist < 10){
-            self.label.text = "ja je bent er domme kut! \(round(dist)) \(seconden)"
+        if(dist < 25){
+            self.label.text = "ja je bent er! \(round(dist)) \(seconden)"
             self.timerr.invalidate()
             
-            println("stuur je tijd nr de database")
             var sec = String(seconden)
             let parameter = [
                 "tijd": sec,
@@ -161,7 +163,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
             Alamofire.request(.POST, "http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/data/snellerdanjepint", parameters: parameter)
             
         }else{
-            self.label.text = "verder lopen kut! \(round(dist)) \(seconden)"
+            self.label.text = "verder lopen! \(round(dist)) \(seconden)"
         }
         
     }

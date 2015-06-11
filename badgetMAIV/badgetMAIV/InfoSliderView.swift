@@ -8,9 +8,10 @@
 
 import UIKit
 
-class InfoSliderView: UIView {
+class InfoSliderView: UIView{
     
     let scrollView:UIScrollView;
+
 
     /*
     // Only override drawRect: if you perform custom drawing.

@@ -28,10 +28,8 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageViewBack = UIImageView(image: UIImage(named: "backsnelpint"))
+        let imageViewBack = UIImageView(image: UIImage(named: "backsnelpintintro"))
         self.view.addSubview(imageViewBack)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         // Do any additional setup after loading the view.
         
@@ -42,9 +40,10 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         
         
         self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        self.label.center = CGPointMake(160, 284)
+        self.label.center = CGPointMake(160, 410)
         self.label.textAlignment = NSTextAlignment.Center
-        self.label.text = "I'am a test label"
+        self.label.text = "Ga naar de maes stand!"
+        self.label.textColor = UIColor.whiteColor()
         self.view.addSubview(self.label)
         
         
@@ -83,27 +82,25 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!){
         let lastLocation = locations.last as! CLLocation
         println("Did update locations: \(lastLocation.coordinate.latitude) - \(lastLocation.coordinate.longitude)")
-        
-        let locA = CLLocation(latitude: 50.819628, longitude: 3.274238)
+
+        let locA = CLLocation(latitude: 50.819857, longitude: 3.267092)
         let dist = lastLocation.distanceFromLocation(locA)
         
-        println( "De afstand is \(dist)");
         
-        
-        if(dist < 15){
+        if(dist < 25){
             
-            println("je kan de challenge starten!")
             self.label.text = "ok! \(round(dist))"
             
-            button.frame = CGRectMake(100, 100, 100, 50)
-            button.backgroundColor = UIColor.greenColor()
+            button.frame = CGRectMake(50, 390, 220, 32)
+            button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
             button.setTitle("Begin!", forState: UIControlState.Normal)
             button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(button)
+            //self.label.removeFromSuperview()
             
         }else{
             println("begeef je naar de maes stand!")
-            self.label.text = "denied! \(round(dist))"
+            self.label.text = "Je bent \(round(dist)) meter van de stand!"
             button.removeFromSuperview()
         }
         

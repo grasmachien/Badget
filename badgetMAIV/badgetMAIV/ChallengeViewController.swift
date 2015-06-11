@@ -69,21 +69,21 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         
         //BUTTON CHALLENGE 1
         let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.frame = CGRectMake(0, 10, 320, 170)
+        button.frame = CGRectMake(0, 0, 320, 173)
         button.setBackgroundImage(UIImage(named: "challenge1btn"), forState: UIControlState.Normal)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
         
         //BUTTON CHALLENGE 2
         let button2   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button2.frame = CGRectMake(0, 180, 320,170)
+        button2.frame = CGRectMake(0, 173, 320,173)
         button2.setBackgroundImage(UIImage(named: "challenge2Btn"), forState: UIControlState.Normal)
         button2.addTarget(self, action: "buttonAction2:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button2)
         
         //BUTTON CHALLENGE 3
         let button3   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button3.frame = CGRectMake(0, 350, 320, 170)
+        button3.frame = CGRectMake(0, 346, 320, 173)
         button3.setBackgroundImage(UIImage(named: "challenge3Btn"), forState: UIControlState.Normal)
         button3.addTarget(self, action: "buttonAction3:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button3)
