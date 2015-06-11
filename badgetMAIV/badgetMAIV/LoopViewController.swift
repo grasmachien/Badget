@@ -40,7 +40,7 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         
         
         self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        self.label.center = CGPointMake(160, 410)
+        self.label.center = CGPointMake(160, 370)
         self.label.textAlignment = NSTextAlignment.Center
         self.label.text = "Ga naar de maes stand!"
         self.label.textColor = UIColor.whiteColor()
@@ -91,7 +91,7 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
             
             self.label.text = "ok! \(round(dist))"
             
-            button.frame = CGRectMake(50, 390, 220, 32)
+            button.frame = CGRectMake(50, 30, 220, 32)
             button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
             button.setTitle("Begin!", forState: UIControlState.Normal)
             button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)

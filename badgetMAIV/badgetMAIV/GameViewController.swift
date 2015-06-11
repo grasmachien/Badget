@@ -21,37 +21,32 @@ class GameViewController: UIViewController {
     
     var userData = [NSManagedObject]()
     
+    var connectionsLabel: UILabel!
+    let colorService = ColorServiceManager()
 
     let motionManager = CMMotionManager()
     let pint = UIImageView()
     var timerr = NSTimer()
     var timerrstart = NSTimer()
     var username:String = "";
-
+    var score:Int = 0;
     
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
-        
         
         let fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.returnsObjectsAsFaults = false
         let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
         fetchRequest.sortDescriptors = [sortNameAscending]
-        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
         var error:NSError?
         userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
         
-        
         for data in userData as [NSManagedObject] {
-            
             username = data.valueForKey("naaam")! as! String
-            
         }
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.title = "game"
         
     }
 
@@ -60,21 +55,35 @@ class GameViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return navigationController?.navigationBarHidden == true
-    }
-    
-    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-        return UIStatusBarAnimation.Fade
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: false)
+        colorService.delegate = self
         
-        let imageViewBack = UIImageView(image: UIImage(named: "backstabieler"))
-        self.view.addSubview(imageViewBack)
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == true, animated: false)
+        
+        let imageViewBackintro = UIImageView(image: UIImage(named: "backstabielerintro"))
+        self.view.addSubview(imageViewBackintro)
+        
+    }
+    
+    func buttonAction(sender:UIButton!)
+    {
+        startGame()
+    }
+    
+//    func changeColor(color : UIColor) {
+//        UIView.animateWithDuration(0.2) {
+////            let imageViewBackintro = UIImageView(image: UIImage(named: "backstabielerintro"))
+////            self.view.addSubview(imageViewBackintro)
+//        }
+//    }
+    
+    func startGame(){
+        
+        let verlorenback = UIImageView(image: UIImage(named: "backstabieler"))
+        self.view.addSubview(verlorenback)
         
         var randomRot: Double;
         randomRot = 0;
@@ -92,7 +101,6 @@ class GameViewController: UIViewController {
             if(teller < 1){
                 teller++
             }
-    
         }
         
         self.pint.image = UIImage(named: "pint")
@@ -118,9 +126,9 @@ class GameViewController: UIViewController {
                 UIView.animateWithDuration(0.2, animations: {
                     // animating `transform` allows us to change 2D geometry of the object
                     // like `scale`, `rotation` or `translate`
-                
-                        self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
-
+                    
+                    self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
+                    
                     
                 })
                 
@@ -128,10 +136,15 @@ class GameViewController: UIViewController {
                     
                     if(rotation < -1 && rotation > -5.4){
                         println("game over")
-//                        self!.motionManager.stopDeviceMotionUpdates()
-//                        self?.timerr.invalidate()
-
-    
+                            self!.colorService.sendColor("red")
+                        
+                            let verlorenback = UIImageView(image: UIImage(named: "verlorenpagina"))
+                            self!.view.addSubview(verlorenback)
+                        
+                            self!.motionManager.stopDeviceMotionUpdates()
+                            self?.timerr.invalidate()
+                        
+                        
                         let parameter = [
                             "tijd": "111",
                             "spel": "versus",
@@ -145,7 +158,7 @@ class GameViewController: UIViewController {
                                 println("JSON \(JSON)")
                                 println("ERROR \(error)")
                         }
-
+                        
                     }
                     
                 }
@@ -153,20 +166,46 @@ class GameViewController: UIViewController {
             }
         }
         
-        
+    }
+
+}
+
+extension GameViewController : ColorServiceManagerDelegate {
+    
+    func connectedDevicesChanged(manager: ColorServiceManager, connectedDevices: [String]) {
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            //self.connectionsLabel.text = "Connections: \(connectedDevices)"
+            println("Connections: \(connectedDevices)")
+            
+            let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            button.frame = CGRectMake(50, 390, 220, 32)
+            button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            button.setTitle("Challenge Starten", forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(button)
+            
+            
+        }
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func colorChanged(manager: ColorServiceManager, colorString: String) {
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            switch colorString {
+            case "red":
+                
+                let verlorenback = UIImageView(image: UIImage(named: "winstabieler"))
+                self.view.addSubview(verlorenback)
+                
+                self.motionManager.stopDeviceMotionUpdates()
+                self.timerr.invalidate()
+                
+            case "yellow":
+                self.changeColor(UIColor.yellowColor())
+            default:
+                NSLog("%@", "Unknown color value received: \(colorString)")
+            }
+        }
     }
-    */
-
+    
 }
