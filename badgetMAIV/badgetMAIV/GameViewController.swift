@@ -39,6 +39,18 @@ class GameViewController: UIViewController {
         startGame()
         self.colorService.sendColor("yellow")
     }
+    
+    func gameOver(){
+        
+        self.motionManager.stopDeviceMotionUpdates()
+        self.timerr.invalidate()
+        
+        self.colorService.sendColor("red")
+        
+        let resultBalance = EindschermBalanceViewController()
+        resultBalance.gewonnenverloren = "verloren"
+        self.navigationController!.pushViewController(resultBalance, animated: true)
+    }
 
     
     func startGame(){
@@ -76,37 +88,29 @@ class GameViewController: UIViewController {
             motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
                 [weak self] (data: CMDeviceMotion!, error: NSError!) in
                 
-                let rotation = atan2(data.gravity.x, data.gravity.y) - M_PI
+                let rotation = atan(data.gravity.x) - M_PI
+                var rot = data.gravity.x*3;
+                println("ROTATION IS \(rot)")
                 
-                println("ROTATION IS \(rotation)")
-                
-                var resRot = -rotation - randomRot;
+                var resRot = rot - randomRot;
                 println("AANGEPASTE ROTATIE \(resRot)");
                 
                 UIView.animateWithDuration(0.2, animations: {
                     // animating `transform` allows us to change 2D geometry of the object
                     // like `scale`, `rotation` or `translate`
                     
-                    self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
+                    self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(resRot))
                     
                 })
                 
                 if(teller == 1){
                     
-                    if(rotation < -1 && rotation > -5.4){
-                        println("game over")
-                        
-                        self!.motionManager.stopDeviceMotionUpdates()
-                        self?.timerr.invalidate()
-                        
-                        self!.colorService.sendColor("red")
-                        
-                        let resultBalance = EindschermBalanceViewController()
-                        resultBalance.gewonnenverloren = "verloren"
-                        self!.navigationController!.pushViewController(resultBalance, animated: true)
-                        
-                        
-                        
+                    if(rot < -0.7 && rot > -3.0){
+                        self!.gameOver()
+                    }
+                    
+                    if(rot > 0.7 && rot < 3.0){
+                        self!.gameOver()
                     }
                     
                 }
@@ -124,14 +128,20 @@ extension GameViewController : ColorServiceManagerDelegate {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             //self.connectionsLabel.text = "Connections: \(connectedDevices)"
             println("Connections: \(connectedDevices)")
+        
+            if String(stringInterpolationSegment: connectedDevices).isEmpty {
             
-            let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-            button.frame = CGRectMake(50, 390, 220, 32)
-            button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
-            button.setTitle("Challenge Starten", forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-            self.view.addSubview(button)
+                
+                
+            }else{
+                let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+                button.frame = CGRectMake(50, 390, 220, 32)
+                button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+                button.setTitle("Challenge Starten", forState: UIControlState.Normal)
+                button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+                button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+                self.view.addSubview(button)
+            }
 
         }
     }

@@ -10,6 +10,7 @@
 		6C6B4DB01B28CAAF003877F2 /* ResultaatFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6B4DAF1B28CAAF003877F2 /* ResultaatFotoViewController.swift */; };
 		6CA2F8F01B2A090E00377598 /* ColorServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */; };
 		6CA2F8F21B2AF5FF00377598 /* EindschermBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F8F11B2AF5FF00377598 /* EindschermBalanceViewController.swift */; };
+		6CA2F9011B2B5FB500377598 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F9001B2B5FB500377598 /* TestViewController.swift */; };
 		6CA44D5C1B221CC900BB4E90 /* LoopIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */; };
 		6CA44D611B22256F00BB4E90 /* LoopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */; };
 		6CA96E6D1B24D49B00602D2B /* AddNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA96E6C1B24D49B00602D2B /* AddNameTableViewController.swift */; };
@@ -97,6 +98,7 @@
 		6C6B4DAF1B28CAAF003877F2 /* ResultaatFotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultaatFotoViewController.swift; sourceTree = "<group>"; };
 		6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServiceManager.swift; sourceTree = "<group>"; };
 		6CA2F8F11B2AF5FF00377598 /* EindschermBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EindschermBalanceViewController.swift; sourceTree = "<group>"; };
+		6CA2F9001B2B5FB500377598 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopIntroView.swift; sourceTree = "<group>"; };
 		6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopTimerViewController.swift; sourceTree = "<group>"; };
 		6CA96E6C1B24D49B00602D2B /* AddNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNameTableViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		6CAD884D1B1F66B8004D3A24 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */,
 				6CAD884B1B1F3F20004D3A24 /* CoreLocation.framework */,
 				6CAD88491B1F3F0E004D3A24 /* MapKit.framework */,
 			);
@@ -216,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				6CAD884D1B1F66B8004D3A24 /* frameworks */,
-				6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */,
 				6CC0534E1B1CAD88005F6A8A /* badgetMAIV */,
 				6CC053641B1CAD88005F6A8A /* badgetMAIVTests */,
 				6CC0534D1B1CAD88005F6A8A /* Products */,
@@ -246,6 +248,7 @@
 				6CC0534F1B1CAD88005F6A8A /* Supporting Files */,
 				6CC3F3DA1B2393BF00C18C1D /* extensionTImer.swift */,
 				6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */,
+				6CA2F9001B2B5FB500377598 /* TestViewController.swift */,
 			);
 			path = badgetMAIV;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CAD88401B1F39B8004D3A24 /* GameViewController.swift in Sources */,
+				6CA2F9011B2B5FB500377598 /* TestViewController.swift in Sources */,
 				6CC053571B1CAD88005F6A8A /* ViewController.swift in Sources */,
 				6CC3F3DB1B2393BF00C18C1D /* extensionTImer.swift in Sources */,
 				6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */,
