@@ -30,7 +30,7 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         
         let imageViewBack = UIImageView(image: UIImage(named: "backsnelpintintro"))
         self.view.addSubview(imageViewBack)
-
+        
         // Do any additional setup after loading the view.
         
         self.locationManager = CLLocationManager()
@@ -38,15 +38,12 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.distanceFilter = 1
         self.locationManager.activityType = CLActivityType.AutomotiveNavigation
         
-        
         self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
         self.label.center = CGPointMake(160, 370)
         self.label.textAlignment = NSTextAlignment.Center
         self.label.text = "Ga naar de maes stand!"
         self.label.textColor = UIColor.whiteColor()
         self.view.addSubview(self.label)
-        
-        
         
     }
 
@@ -82,8 +79,8 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!){
         let lastLocation = locations.last as! CLLocation
         println("Did update locations: \(lastLocation.coordinate.latitude) - \(lastLocation.coordinate.longitude)")
-
-        let locA = CLLocation(latitude: 50.819857, longitude: 3.267092)
+    
+        let locA = CLLocation(latitude: 50.822965, longitude: 3.260418)
         let dist = lastLocation.distanceFromLocation(locA)
         
         

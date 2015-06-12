@@ -8,18 +8,9 @@
 
 import UIKit
 import CoreMotion
-import CoreData
-import Alamofire
+
 
 class GameViewController: UIViewController {
-    
-    var appDelegate:AppDelegate {
-        get {
-            return UIApplication.sharedApplication().delegate as! AppDelegate
-        }
-    }
-    
-    var userData = [NSManagedObject]()
     
     var connectionsLabel: UILabel!
     let colorService = ColorServiceManager()
@@ -28,32 +19,7 @@ class GameViewController: UIViewController {
     let pint = UIImageView()
     var timerr = NSTimer()
     var timerrstart = NSTimer()
-    var username:String = "";
     var score:Int = 0;
-    
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
-        
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        fetchRequest.returnsObjectsAsFaults = false
-        let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
-        fetchRequest.sortDescriptors = [sortNameAscending]
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var error:NSError?
-        userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
-        
-        for data in userData as [NSManagedObject] {
-            username = data.valueForKey("naaam")! as! String
-        }
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        
-        fatalError("init(coder:) has not been implemented")
-    }
     
     
     override func viewDidLoad() {
@@ -71,14 +37,9 @@ class GameViewController: UIViewController {
     func buttonAction(sender:UIButton!)
     {
         startGame()
+        self.colorService.sendColor("yellow")
     }
-    
-//    func changeColor(color : UIColor) {
-//        UIView.animateWithDuration(0.2) {
-////            let imageViewBackintro = UIImageView(image: UIImage(named: "backstabielerintro"))
-////            self.view.addSubview(imageViewBackintro)
-//        }
-//    }
+
     
     func startGame(){
         
@@ -92,6 +53,8 @@ class GameViewController: UIViewController {
         teller = 0;
         
         self.timerr = NSTimer.schedule(repeatInterval: 3) { timer in
+            
+            self.score+=5;
             
             var aRandomInt = Int.random(0...10)
             var bewerkteRandomint:Double = Double(aRandomInt) / 10;
@@ -108,7 +71,6 @@ class GameViewController: UIViewController {
         self.pint.layer.anchorPoint = CGPointMake(0.5, 1.0);
         self.view.addSubview(pint)
         
-        
         if motionManager.deviceMotionAvailable {
             motionManager.deviceMotionUpdateInterval = 0.01
             motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
@@ -119,8 +81,6 @@ class GameViewController: UIViewController {
                 println("ROTATION IS \(rotation)")
                 
                 var resRot = -rotation - randomRot;
-                
-                
                 println("AANGEPASTE ROTATIE \(resRot)");
                 
                 UIView.animateWithDuration(0.2, animations: {
@@ -129,35 +89,23 @@ class GameViewController: UIViewController {
                     
                     self?.pint.transform = CGAffineTransformMakeRotation(CGFloat(-rotation))
                     
-                    
                 })
                 
                 if(teller == 1){
                     
                     if(rotation < -1 && rotation > -5.4){
                         println("game over")
-                            self!.colorService.sendColor("red")
                         
-                            let verlorenback = UIImageView(image: UIImage(named: "verlorenpagina"))
-                            self!.view.addSubview(verlorenback)
+                        self!.motionManager.stopDeviceMotionUpdates()
+                        self?.timerr.invalidate()
                         
-                            self!.motionManager.stopDeviceMotionUpdates()
-                            self?.timerr.invalidate()
+                        self!.colorService.sendColor("red")
+                        
+                        let resultBalance = EindschermBalanceViewController()
+                        resultBalance.gewonnenverloren = "verloren"
+                        self!.navigationController!.pushViewController(resultBalance, animated: true)
                         
                         
-                        let parameter = [
-                            "tijd": "111",
-                            "spel": "versus",
-                            "username": self!.username
-                        ]
-                        
-                        Alamofire.request(.POST, "http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/data", parameters: parameter)
-                            .responseJSON { (request, response, JSON, error) in
-                                println("REQUEST \(request)")
-                                println("RESPONSE \(response)")
-                                println("JSON \(JSON)")
-                                println("ERROR \(error)")
-                        }
                         
                     }
                     
@@ -184,8 +132,7 @@ extension GameViewController : ColorServiceManagerDelegate {
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(button)
-            
-            
+
         }
     }
     
@@ -194,14 +141,19 @@ extension GameViewController : ColorServiceManagerDelegate {
             switch colorString {
             case "red":
                 
-                let verlorenback = UIImageView(image: UIImage(named: "winstabieler"))
-                self.view.addSubview(verlorenback)
+                println("je bent gewonnen")
                 
                 self.motionManager.stopDeviceMotionUpdates()
                 self.timerr.invalidate()
                 
+                let resultBalance = EindschermBalanceViewController()
+                resultBalance.gewonnenverloren = "gewonnen"
+                resultBalance.dataFromScore = self.score
+                self.navigationController!.pushViewController(resultBalance, animated: true)
+                
             case "yellow":
-                self.changeColor(UIColor.yellowColor())
+                println("start game")
+                self.startGame()
             default:
                 NSLog("%@", "Unknown color value received: \(colorString)")
             }

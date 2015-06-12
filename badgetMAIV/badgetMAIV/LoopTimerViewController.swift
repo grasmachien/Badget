@@ -19,13 +19,14 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    var username = [NSManagedObject]()
+    var userData = [NSManagedObject]()
     var locationManager: CLLocationManager!
     var seconden = 60;
     let redLayer = CALayer()
     var label: UILabel!
     var timerr = NSTimer()
     var labelTimeUp: UILabel!
+    var username:String = "";
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         
@@ -33,14 +34,15 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         fetchRequest.returnsObjectsAsFaults = false
         let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
         fetchRequest.sortDescriptors = [sortNameAscending]
-        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
         var error:NSError?
-        username = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        
+        for data in userData as [NSManagedObject] {
+            username = data.valueForKey("naaam")! as! String
+        }
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.title = "lopen"
         
     }
     
@@ -158,9 +160,21 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
             let parameter = [
                 "tijd": sec,
                 "spel": "snellerdanjepint",
+                "username": self.username
             ]
             
-            Alamofire.request(.POST, "http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/data/snellerdanjepint", parameters: parameter)
+            Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/data", parameters: parameter)
+            
+            let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: appDelegate.managedObjectContext!)
+            let score = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: appDelegate.managedObjectContext!)
+            
+            score.setValue(sec, forKey: "lopenscore")
+            
+            var error:NSError?
+            
+            if !appDelegate.managedObjectContext!.save(&error) {
+                println("could not save \(error), \(error?.userInfo)")
+            }
             
         }else{
             self.label.text = "verder lopen! \(round(dist)) \(seconden)"
