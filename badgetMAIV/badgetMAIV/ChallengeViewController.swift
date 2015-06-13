@@ -21,10 +21,7 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
     var username = [NSManagedObject]()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
-        
-        
-        
-        
+
         let fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.returnsObjectsAsFaults = false
         let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
@@ -59,7 +56,7 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         
         if(username.isEmpty){
             println("geen naam ingevoerd")
-            self.navigationController!.pushViewController(AddNameTableViewController(), animated: true)
+            self.navigationController!.pushViewController(NameInputViewController(), animated: true)
             
             
         }else{
