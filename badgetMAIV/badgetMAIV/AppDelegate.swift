@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navVC: UINavigationController!
+    var navbadgeVC: UINavigationController!
     var tabbarVC:UITabBarController!
 
 
@@ -27,11 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainVC = ChallengeViewController(nibName: nil, bundle: nil );
         self.navVC = UINavigationController(rootViewController: mainVC);
         
+        let badgeVC = BadgesViewController(nibName: nil, bundle: nil );
+        self.navbadgeVC = UINavigationController(rootViewController: badgeVC);
+        
         self.tabbarVC = CustomTabBarController()
         self.tabbarVC.viewControllers = [
             ViewController(nibName:nil, bundle: nil),
             navVC,
-            BadgesViewController(nibName:nil, bundle: nil)
+            navbadgeVC
         ]
     
         tabbarVC.tabBar.barTintColor = UIColor(red: 0.01, green: 0.08, blue: 0.13, alpha: 1);

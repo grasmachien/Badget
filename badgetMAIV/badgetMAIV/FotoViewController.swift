@@ -136,7 +136,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
         println("foto genomen")
         
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        
         
         let gekozenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -175,10 +175,12 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 println("RESPONSE \(response)")
                 println("JSON \(JSON)")
                 println("ERROR \(error)")
+                picker.dismissViewControllerAnimated(true, completion: nil)
         }
         
         let resultFoto = ResultaatFotoViewController()
         resultFoto.dataFromImage = gekozenImage
+        
         self.navigationController!.pushViewController(resultFoto,animated: true)
         
     }

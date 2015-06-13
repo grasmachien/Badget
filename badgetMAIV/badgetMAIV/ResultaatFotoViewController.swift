@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
 class ResultaatFotoViewController: UIViewController {
     
+    var appDelegate:AppDelegate {
+        get {
+            return UIApplication.sharedApplication().delegate as! AppDelegate
+        }
+    }
+    
+    
     var dataFromImage : UIImage?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        var tabArray = self.tabBarController?.tabBar.items as NSArray!
+        var tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+        tabItem.badgeValue = "1"
         
         
         let imageViewBack = UIImageView(image: UIImage(named: "resultaat"))
@@ -43,6 +57,21 @@ class ResultaatFotoViewController: UIViewController {
         overview.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         overview.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(overview)
+        
+        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: appDelegate.managedObjectContext!)
+        let usernames = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: appDelegate.managedObjectContext!)
+        
+        var imgdata:NSData = UIImagePNGRepresentation(self.dataFromImage)
+        usernames.setValue(imgdata, forKey: "image")
+        
+        var error:NSError?
+        
+        if !appDelegate.managedObjectContext!.save(&error) {
+            println("could not save \(error), \(error?.userInfo)")
+        }
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

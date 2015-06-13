@@ -32,6 +32,20 @@ class GameViewController: UIViewController {
         let imageViewBackintro = UIImageView(image: UIImage(named: "backstabielerintro"))
         self.view.addSubview(imageViewBackintro)
         
+        let backbutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        backbutton.frame = CGRectMake(50, 440, 220, 32)
+        backbutton.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        backbutton.setTitle("Terug naar overzicht", forState: UIControlState.Normal)
+        backbutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        backbutton.addTarget(self, action: "buttonActionBack:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(backbutton)
+        
+    }
+    
+    func buttonActionBack(sender:UIButton!)
+    {
+        self.navigationController?.popViewControllerAnimated(true);
+        
     }
     
     func buttonAction(sender:UIButton!)

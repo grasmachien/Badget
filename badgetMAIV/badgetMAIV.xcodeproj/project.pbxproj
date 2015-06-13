@@ -11,10 +11,9 @@
 		6CA2F8F01B2A090E00377598 /* ColorServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */; };
 		6CA2F8F21B2AF5FF00377598 /* EindschermBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F8F11B2AF5FF00377598 /* EindschermBalanceViewController.swift */; };
 		6CA2F9051B2C60B500377598 /* NameInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F9041B2C60B500377598 /* NameInputViewController.swift */; };
+		6CA2F9071B2CE34F00377598 /* FotobadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F9061B2CE34F00377598 /* FotobadgeViewController.swift */; };
 		6CA44D5C1B221CC900BB4E90 /* LoopIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */; };
 		6CA44D611B22256F00BB4E90 /* LoopTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */; };
-		6CA96E6D1B24D49B00602D2B /* AddNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA96E6C1B24D49B00602D2B /* AddNameTableViewController.swift */; };
-		6CA96E721B24D56E00602D2B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA96E711B24D56E00602D2B /* TextFieldTableViewCell.swift */; };
 		6CAD88361B1E3AD0004D3A24 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */; };
 		6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD883A1B1E5259004D3A24 /* InfoSliderView.swift */; };
 		6CAD883D1B1F37A3004D3A24 /* FotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD883C1B1F37A3004D3A24 /* FotoViewController.swift */; };
@@ -99,10 +98,9 @@
 		6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServiceManager.swift; sourceTree = "<group>"; };
 		6CA2F8F11B2AF5FF00377598 /* EindschermBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EindschermBalanceViewController.swift; sourceTree = "<group>"; };
 		6CA2F9041B2C60B500377598 /* NameInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputViewController.swift; sourceTree = "<group>"; };
+		6CA2F9061B2CE34F00377598 /* FotobadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotobadgeViewController.swift; sourceTree = "<group>"; };
 		6CA44D5B1B221CC900BB4E90 /* LoopIntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopIntroView.swift; sourceTree = "<group>"; };
 		6CA44D601B22256F00BB4E90 /* LoopTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopTimerViewController.swift; sourceTree = "<group>"; };
-		6CA96E6C1B24D49B00602D2B /* AddNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNameTableViewController.swift; sourceTree = "<group>"; };
-		6CA96E711B24D56E00602D2B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		6CAD883A1B1E5259004D3A24 /* InfoSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSliderView.swift; sourceTree = "<group>"; };
 		6CAD883C1B1F37A3004D3A24 /* FotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotoViewController.swift; sourceTree = "<group>"; };
@@ -154,8 +152,6 @@
 				6CAD88481B1F3D51004D3A24 /* lopen */,
 				6CAD88471B1F3D4C004D3A24 /* game */,
 				6CAD88461B1F3D46004D3A24 /* foto */,
-				6CA96E711B24D56E00602D2B /* TextFieldTableViewCell.swift */,
-				6CA96E6C1B24D49B00602D2B /* AddNameTableViewController.swift */,
 				6CA2F9041B2C60B500377598 /* NameInputViewController.swift */,
 			);
 			name = challenges;
@@ -165,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */,
+				6CA2F9061B2CE34F00377598 /* FotobadgeViewController.swift */,
 			);
 			name = Badges;
 			sourceTree = "<group>";
@@ -440,10 +437,9 @@
 				6CAD88361B1E3AD0004D3A24 /* BadgesViewController.swift in Sources */,
 				6CAD883D1B1F37A3004D3A24 /* FotoViewController.swift in Sources */,
 				6CC053521B1CAD88005F6A8A /* AppDelegate.swift in Sources */,
-				6CA96E721B24D56E00602D2B /* TextFieldTableViewCell.swift in Sources */,
+				6CA2F9071B2CE34F00377598 /* FotobadgeViewController.swift in Sources */,
 				6CA2F8F01B2A090E00377598 /* ColorServiceManager.swift in Sources */,
 				6CF186461B1CF3290004711E /* CustomTabBarController.swift in Sources */,
-				6CA96E6D1B24D49B00602D2B /* AddNameTableViewController.swift in Sources */,
 				6CC053861B1CAE07005F6A8A /* ChallengeViewController.swift in Sources */,
 				6CA44D611B22256F00BB4E90 /* LoopTimerViewController.swift in Sources */,
 				6CC053551B1CAD88005F6A8A /* badgetMAIV.xcdatamodeld in Sources */,

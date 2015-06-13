@@ -54,8 +54,6 @@ class NameInputViewController: UIViewController {
         
         if !name.isEmpty {
             
-            println("[AddDateVC] The name is '\(name)'")
-            //                self.delegate?.addNameTableViewController(self, saveDateWithName: name)
             
             let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: appDelegate.managedObjectContext!)
             let usernames = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: appDelegate.managedObjectContext!)

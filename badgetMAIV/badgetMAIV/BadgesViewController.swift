@@ -20,9 +20,29 @@ class BadgesViewController: UIViewController {
     var userData = [NSManagedObject]()
     var balans:String = "";
     var lopen:String = "";
-    var foto:String = "";
+    var foto:UIImage!
+    var fotodata:NSData!
+    var fotobutton:UIButton!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+        
+        
+        
+        self.tabBarItem = UITabBarItem(title: "badges", image: UIImage(named: "badgeIcon"), tag: 2)
+        
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        var tabArray = self.tabBarController?.tabBar.items as NSArray!
+        var tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+        tabItem.badgeValue = nil
         
         let fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.returnsObjectsAsFaults = false
@@ -43,41 +63,70 @@ class BadgesViewController: UIViewController {
             }
             
             if((data.valueForKey("image")) != nil){
-                self.foto = data.valueForKey("image")! as! String
+                
+                self.fotodata = data.valueForKey("image")! as! NSData
+                
+                if(self.fotodata != nil){
+                    var convertedImage:UIImage = UIImage(data: fotodata)!;
+                    self.foto = convertedImage;
+                    
+//                    var imageViewBacck = UIImageView(image: convertedImage)
+//                    imageViewBacck.contentMode = UIViewContentMode.ScaleAspectFit
+//                    imageViewBacck.frame = CGRect(x: 0, y: 80, width: 200, height: 200)
+//                    var center = (self.view.bounds.size.width - imageViewBacck.frame.size.width) / 2.0
+//                    imageViewBacck.frame = CGRect(x: center, y: 80, width: 200, height: 200)
+//                    self.view.addSubview(imageViewBacck)
+                    
+                }
+                
             }
             
         }
         
         
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.tabBarItem = UITabBarItem(title: "badges", image: UIImage(named: "badgeIcon"), tag: 2)
-        
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         if(self.balans == ""){
             println("balans badge niet behaald")
+            let balansNot = UIImageView(image: UIImage(named: "nonbadge"))
+            balansNot.frame = CGRectMake(100, 100, 137, 123)
+            self.view.addSubview(balansNot)
         }else{
             println("balans badge behaald")
         }
         
         if(self.lopen == ""){
             println("loop badge niet behaald")
+            let lopenNot = UIImageView(image: UIImage(named: "nonbadge"))
+            lopenNot.frame = CGRectMake(100, 223, 137, 123)
+            self.view.addSubview(lopenNot)
         }else{
             println("loop badge behaald")
         }
         
-        if(self.foto == ""){
+        if(self.foto == nil){
             println("foto badge niet behaald")
+            let fotoNot = UIImageView(image: UIImage(named: "nonbadge"))
+            fotoNot.frame = CGRectMake(100, 346, 137, 123)
+            self.view.addSubview(fotoNot)
         }else{
             println("foto badge behaald")
+
+            
+            fotobutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            fotobutton.frame = CGRectMake(100, 346, 137, 123)
+            fotobutton.setBackgroundImage(UIImage(named: "fotobadge"), forState: UIControlState.Normal)
+            fotobutton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(fotobutton)
         }
+
+        
+        super.viewDidAppear(animated)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         let imageViewBack = UIImageView(image: UIImage(named: "backbadges"))
         self.view.addSubview(imageViewBack)
@@ -88,6 +137,12 @@ class BadgesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func buttonAction(sender:UIButton!)
+    {
+        println("clicked on photo badge")
+        self.navigationController!.pushViewController(FotobadgeViewController(), animated: true)
     }
     
 
