@@ -10,6 +10,7 @@
 		6C6B4DB01B28CAAF003877F2 /* ResultaatFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6B4DAF1B28CAAF003877F2 /* ResultaatFotoViewController.swift */; };
 		6C7846321B2E14250022D7A6 /* LoopbadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7846311B2E14250022D7A6 /* LoopbadgeViewController.swift */; };
 		6C7846351B2E19920022D7A6 /* FotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7846341B2E19920022D7A6 /* FotoDetailViewController.swift */; };
+		6C7846371B2E2A1D0022D7A6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7846361B2E2A1D0022D7A6 /* Social.framework */; };
 		6CA2F8F01B2A090E00377598 /* ColorServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */; };
 		6CA2F8F21B2AF5FF00377598 /* EindschermBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F8F11B2AF5FF00377598 /* EindschermBalanceViewController.swift */; };
 		6CA2F9051B2C60B500377598 /* NameInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2F9041B2C60B500377598 /* NameInputViewController.swift */; };
@@ -99,6 +100,7 @@
 		6C6B4DAF1B28CAAF003877F2 /* ResultaatFotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultaatFotoViewController.swift; sourceTree = "<group>"; };
 		6C7846311B2E14250022D7A6 /* LoopbadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopbadgeViewController.swift; sourceTree = "<group>"; };
 		6C7846341B2E19920022D7A6 /* FotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotoDetailViewController.swift; sourceTree = "<group>"; };
+		6C7846361B2E2A1D0022D7A6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		6CA2F8EF1B2A090E00377598 /* ColorServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServiceManager.swift; sourceTree = "<group>"; };
 		6CA2F8F11B2AF5FF00377598 /* EindschermBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EindschermBalanceViewController.swift; sourceTree = "<group>"; };
 		6CA2F9041B2C60B500377598 /* NameInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7846371B2E2A1D0022D7A6 /* Social.framework in Frameworks */,
 				6CAD884C1B1F3F20004D3A24 /* CoreLocation.framework in Frameworks */,
 				6CAD884A1B1F3F0E004D3A24 /* MapKit.framework in Frameworks */,
 				6CC053801B1CADD5005F6A8A /* Alamofire.framework in Frameworks */,
@@ -158,6 +161,14 @@
 			name = foto;
 			sourceTree = "<group>";
 		};
+		6C7846381B2E30B70022D7A6 /* loop */ = {
+			isa = PBXGroup;
+			children = (
+				6C7846311B2E14250022D7A6 /* LoopbadgeViewController.swift */,
+			);
+			name = loop;
+			sourceTree = "<group>";
+		};
 		6CAD88431B1F3C7B004D3A24 /* challenges */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */,
+				6C7846381B2E30B70022D7A6 /* loop */,
 				6C7846331B2E197B0022D7A6 /* foto */,
-				6C7846311B2E14250022D7A6 /* LoopbadgeViewController.swift */,
 			);
 			name = Badges;
 			sourceTree = "<group>";
@@ -230,6 +241,7 @@
 		6CC053431B1CAD88005F6A8A = {
 			isa = PBXGroup;
 			children = (
+				6C7846361B2E2A1D0022D7A6 /* Social.framework */,
 				6CAD884D1B1F66B8004D3A24 /* frameworks */,
 				6CC0534E1B1CAD88005F6A8A /* badgetMAIV */,
 				6CC053641B1CAD88005F6A8A /* badgetMAIVTests */,

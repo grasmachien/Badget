@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "fotobadgeback.png"
+      "filename" : "balansbadge.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "fotobadgeback@2x.png"
+      "filename" : "balansbadge@2x.png"
     }
   ],
   "info" : {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class FotobadgeViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class FotobadgeViewController: UIViewController {
         self.view.addSubview(imageViewBack)
         
         let bekijkbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        bekijkbtn.frame = CGRectMake(50, 380, 220, 32)
+        bekijkbtn.frame = CGRectMake(50, 390, 220, 32)
         bekijkbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
         bekijkbtn.setTitle("Bekijk foto", forState: UIControlState.Normal)
         bekijkbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -37,6 +38,20 @@ class FotobadgeViewController: UIViewController {
         self.view.addSubview(backbutton)
         
         
+        
+        if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)){
+            
+            let fbbutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            fbbutton.frame = CGRectMake(50, 340, 220, 32)
+            fbbutton.setBackgroundImage(UIImage(named: "fbbtn"), forState: UIControlState.Normal)
+            fbbutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            fbbutton.addTarget(self, action: "buttonActionfb:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(fbbutton)
+        }
+        
+        
+        
+        
 
     }
 
@@ -48,6 +63,19 @@ class FotobadgeViewController: UIViewController {
     func buttonActionBack(sender:UIButton!)
     {
         self.navigationController?.popViewControllerAnimated(true);
+        
+    }
+    
+    func buttonActionfb(sender:UIButton!)
+    {
+       let facebookVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        presentViewController(facebookVC, animated: true, completion: { () -> Void in
+            
+            
+        })
+        
+        facebookVC.setInitialText("Foto badge behaald!")
+        facebookVC.addImage(UIImage(named: "badgefoto"))
         
     }
     

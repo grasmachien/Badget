@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
+
+        
     }
 
     override func didReceiveMemoryWarning() {
