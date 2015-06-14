@@ -1,5 +1,5 @@
 //
-//  FotobadgeViewController.swift
+//  FotoDetailViewController.swift
 //  badgetMAIV
 //
 //  Created by Matthias Brodelet on 14/06/15.
@@ -8,36 +8,35 @@
 
 import UIKit
 
-class FotobadgeViewController: UIViewController {
+class FotoDetailViewController: UIViewController {
     
     var image:UIImage?
+    var imageViewBacck:UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        let imageViewBack = UIImageView(image: UIImage(named: "fotobadgeback"))
+        let imageViewBack = UIImageView(image: UIImage(named: "backbadges"))
         self.view.addSubview(imageViewBack)
-        
-        let bekijkbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        bekijkbtn.frame = CGRectMake(50, 380, 220, 32)
-        bekijkbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
-        bekijkbtn.setTitle("Bekijk foto", forState: UIControlState.Normal)
-        bekijkbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        bekijkbtn.addTarget(self, action: "buttonActionBekijk:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(bekijkbtn)
         
         let backbutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         backbutton.frame = CGRectMake(50, 440, 220, 32)
         backbutton.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
-        backbutton.setTitle("Terug naar badges", forState: UIControlState.Normal)
+        backbutton.setTitle("Terug naar badge", forState: UIControlState.Normal)
         backbutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         backbutton.addTarget(self, action: "buttonActionBack:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(backbutton)
         
+        imageViewBacck = UIImageView(image: image)
+        imageViewBacck.contentMode = UIViewContentMode.ScaleAspectFit
+        imageViewBacck.frame = CGRect(x: 0, y: 100, width: 300, height: 300)
+        var center = (self.view.bounds.size.width - imageViewBacck.frame.size.width) / 2.0
+        imageViewBacck.frame = CGRect(x: center, y: 100, width: 300, height: 300)
+        self.view.addSubview(imageViewBacck)
         
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,12 +50,10 @@ class FotobadgeViewController: UIViewController {
         
     }
     
-    func buttonActionBekijk(sender:UIButton!)
-    {
-        let fotoDetail = FotoDetailViewController()
-        fotoDetail.image = self.image
-        self.navigationController!.pushViewController(fotoDetail, animated: true)
+    override func viewDidDisappear(animated: Bool) {
+        self.imageViewBacck.removeFromSuperview()
         
+        super.viewDidDisappear(animated)
     }
     
 

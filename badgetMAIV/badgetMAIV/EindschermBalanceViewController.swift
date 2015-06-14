@@ -78,7 +78,7 @@ class EindschermBalanceViewController: UIViewController {
                 "username": self.username
             ]
             
-            Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/data", parameters: parameter)
+            Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data", parameters: parameter)
                 .responseJSON { (request, response, JSON, error) in
                     println("REQUEST \(request)")
                     println("RESPONSE \(response)")

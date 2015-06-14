@@ -23,6 +23,7 @@ class BadgesViewController: UIViewController {
     var foto:UIImage!
     var fotodata:NSData!
     var fotobutton:UIButton!
+    var loopbutton:UIButton!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         
@@ -70,12 +71,6 @@ class BadgesViewController: UIViewController {
                     var convertedImage:UIImage = UIImage(data: fotodata)!;
                     self.foto = convertedImage;
                     
-//                    var imageViewBacck = UIImageView(image: convertedImage)
-//                    imageViewBacck.contentMode = UIViewContentMode.ScaleAspectFit
-//                    imageViewBacck.frame = CGRect(x: 0, y: 80, width: 200, height: 200)
-//                    var center = (self.view.bounds.size.width - imageViewBacck.frame.size.width) / 2.0
-//                    imageViewBacck.frame = CGRect(x: center, y: 80, width: 200, height: 200)
-//                    self.view.addSubview(imageViewBacck)
                     
                 }
                 
@@ -84,11 +79,10 @@ class BadgesViewController: UIViewController {
         }
         
         
-        
         if(self.balans == ""){
             println("balans badge niet behaald")
             let balansNot = UIImageView(image: UIImage(named: "nonbadge"))
-            balansNot.frame = CGRectMake(100, 100, 137, 123)
+            balansNot.frame = CGRectMake(100, 150, 137, 123)
             self.view.addSubview(balansNot)
         }else{
             println("balans badge behaald")
@@ -97,23 +91,29 @@ class BadgesViewController: UIViewController {
         if(self.lopen == ""){
             println("loop badge niet behaald")
             let lopenNot = UIImageView(image: UIImage(named: "nonbadge"))
-            lopenNot.frame = CGRectMake(100, 223, 137, 123)
+            lopenNot.frame = CGRectMake(100, 273, 137, 123)
             self.view.addSubview(lopenNot)
         }else{
             println("loop badge behaald")
+            
+            loopbutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            loopbutton.frame = CGRectMake(20, 273, 137, 123)
+            loopbutton.setBackgroundImage(UIImage(named: "badgelopen"), forState: UIControlState.Normal)
+            loopbutton.addTarget(self, action: "buttonAction1:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(loopbutton)
         }
         
         if(self.foto == nil){
             println("foto badge niet behaald")
             let fotoNot = UIImageView(image: UIImage(named: "nonbadge"))
-            fotoNot.frame = CGRectMake(100, 346, 137, 123)
+            fotoNot.frame = CGRectMake(100, 273, 137, 123)
             self.view.addSubview(fotoNot)
         }else{
             println("foto badge behaald")
 
             
             fotobutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-            fotobutton.frame = CGRectMake(100, 346, 137, 123)
+            fotobutton.frame = CGRectMake(170, 273, 137, 123)
             fotobutton.setBackgroundImage(UIImage(named: "fotobadge"), forState: UIControlState.Normal)
             fotobutton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(fotobutton)
@@ -142,7 +142,16 @@ class BadgesViewController: UIViewController {
     func buttonAction(sender:UIButton!)
     {
         println("clicked on photo badge")
-        self.navigationController!.pushViewController(FotobadgeViewController(), animated: true)
+        
+        let fotobadge = FotobadgeViewController()
+        fotobadge.image = self.foto
+        self.navigationController!.pushViewController(fotobadge, animated: true)
+    }
+    
+    func buttonAction1(sender:UIButton!)
+    {
+        println("clicked on loop badge")
+        self.navigationController!.pushViewController(LoopbadgeViewController(), animated: true)
     }
     
 

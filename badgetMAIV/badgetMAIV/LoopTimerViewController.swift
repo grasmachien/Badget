@@ -79,9 +79,9 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.activityType = CLActivityType.AutomotiveNavigation
         
         self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        self.label.center = CGPointMake(160, 284)
+        self.label.center = CGPointMake(160, 120)
         self.label.textAlignment = NSTextAlignment.Center
-        self.label.text = "I'am a test label"
+        self.label.text = ""
         self.label.textColor = UIColor.whiteColor()
         self.view.addSubview(self.label)
         
@@ -103,20 +103,61 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
     func buttonActionsecret(sender:UIButton!)
     {
         
+        self.winthis();
+        
+        
+    }
+    
+    func winthis(){
+        
         self.timerr.invalidate()
         self.locationManager.stopUpdatingLocation()
+        
+        var tabArray = self.tabBarController?.tabBar.items as NSArray!
+        var tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+        tabItem.badgeValue = "1"
+        
+        var bla = 332-seconden;
+        
+        var bb = Double(bla)
+        var kk = Double(bb/332.0)
+        var pp = kk*25
+        var toint = Int(pp)
+        
+        var sec = String(toint)
         
         let winpagina = UIImageView(image: UIImage(named: "winlopen"))
         self.view.addSubview(winpagina)
         
-        var sec = String(seconden)
+        var labelscore = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        labelscore.center = CGPointMake(180, 335)
+        labelscore.textAlignment = NSTextAlignment.Center
+        labelscore.text = "Je hebt nog \(sec)cl over"
+        labelscore.textColor = UIColor.whiteColor()
+        self.view.addSubview(labelscore)
+        
+        var labelbadge = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        labelbadge.center = CGPointMake(158, 373)
+        labelbadge.textAlignment = NSTextAlignment.Center
+        labelbadge.text = "Badge behaald!"
+        labelbadge.textColor = UIColor.whiteColor()
+        self.view.addSubview(labelbadge)
+        
+        let overzichtbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        overzichtbtn.frame = CGRectMake(50, 440, 220, 32)
+        overzichtbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        overzichtbtn.setTitle("Terug naar overzicht", forState: UIControlState.Normal)
+        overzichtbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        overzichtbtn.addTarget(self, action: "buttonActionOverzicht:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(overzichtbtn)
+        
         let parameter = [
             "tijd": sec,
             "spel": "snellerdanjepint",
             "username": self.username
         ]
         
-        Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/data", parameters: parameter)
+        Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data", parameters: parameter)
         
         let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: appDelegate.managedObjectContext!)
         let score = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: appDelegate.managedObjectContext!)
@@ -128,6 +169,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         if !appDelegate.managedObjectContext!.save(&error) {
             println("could not save \(error), \(error?.userInfo)")
         }
+        
         
     }
     
@@ -201,6 +243,12 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func buttonActionOverzicht(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(ChallengeViewController(), animated: true)
+        
+    }
+    
     func buttonActionBack(sender:UIButton!)
     {
         self.navigationController?.popViewControllerAnimated(true);
@@ -244,28 +292,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         
         if(dist < 25){
             
-            self.timerr.invalidate()
-            self.locationManager.stopUpdatingLocation()
-            
-            var sec = String(seconden)
-            let parameter = [
-                "tijd": sec,
-                "spel": "snellerdanjepint",
-                "username": self.username
-            ]
-            
-            Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/data", parameters: parameter)
-            
-            let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: appDelegate.managedObjectContext!)
-            let score = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: appDelegate.managedObjectContext!)
-            
-            score.setValue(sec, forKey: "lopenscore")
-            
-            var error:NSError?
-            
-            if !appDelegate.managedObjectContext!.save(&error) {
-                println("could not save \(error), \(error?.userInfo)")
-            }
+            self.winthis();
             
         }else{
             self.label.text = "verder lopen! \(round(dist)) \(seconden)"

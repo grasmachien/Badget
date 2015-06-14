@@ -178,7 +178,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // CREATE AND SEND REQUEST ----------
         
         //let urlRequest = urlRequestWithComponents("http://192.168.0.114/2014-2015/MAIV/Badget/Badget/site/api/photos", parameters: parameters, imageData: imageData)
-        let urlRequest = urlRequestWithComponents("http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/photos", parameters: parameters, imageData: imageData)
+        let urlRequest = urlRequestWithComponents("http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/photos", parameters: parameters, imageData: imageData)
         
         Alamofire.upload(urlRequest.0, urlRequest.1)
             .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
