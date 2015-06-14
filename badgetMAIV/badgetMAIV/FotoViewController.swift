@@ -15,10 +15,30 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var imageView:UIImageView!
     let progressBar = CALayer()
+    var username:String = "";
+    var userData = [NSManagedObject]()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.returnsObjectsAsFaults = false
+        let sortNameAscending = NSSortDescriptor(key: "naaam", ascending: true)
+        fetchRequest.sortDescriptors = [sortNameAscending]
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var error:NSError?
+        userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        
+        
+        for data in userData as [NSManagedObject] {
+            
+            if((data.valueForKey("naaam")) != nil){
+                username = data.valueForKey("naaam")! as! String
+            }
+            
+        }
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.title = "foto"
+
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -63,7 +83,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func buttonActionBack(sender:UIButton!)
     {
-        self.navigationController?.popViewControllerAnimated(true);
+        self.navigationController!.pushViewController(ChallengeViewController(), animated: true)
     
     }
     
@@ -146,7 +166,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // init paramters Dictionary
         var parameters = [
-            "task": "task",
+            "username": self.username,
             "variable1": "var"
         ]
         

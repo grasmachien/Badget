@@ -39,7 +39,7 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.activityType = CLActivityType.AutomotiveNavigation
         
         self.label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        self.label.center = CGPointMake(160, 370)
+        self.label.center = CGPointMake(160, 400)
         self.label.textAlignment = NSTextAlignment.Center
         self.label.text = "Ga naar de maes stand!"
         self.label.textColor = UIColor.whiteColor()
@@ -52,11 +52,25 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         backbutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         backbutton.addTarget(self, action: "buttonActionBack:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(backbutton)
+        
+        let secretbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        secretbtn.frame = CGRectMake(50, 0, 220, 32)
+        secretbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        secretbtn.setTitle("presentatie", forState: UIControlState.Normal)
+        secretbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        secretbtn.addTarget(self, action: "buttonActionsecret:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(secretbtn)
     }
     
     func buttonActionBack(sender:UIButton!)
     {
-        self.navigationController?.popViewControllerAnimated(true);
+        self.navigationController!.pushViewController(ChallengeViewController(), animated: true)
+        
+    }
+    
+    func buttonActionsecret(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(LoopTimerViewController(), animated: true)
         
     }
 

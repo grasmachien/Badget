@@ -21,12 +21,12 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
     
     var userData = [NSManagedObject]()
     var locationManager: CLLocationManager!
-    var seconden = 60;
+    var seconden = 0;
     let redLayer = CALayer()
     var label: UILabel!
     var timerr = NSTimer()
-    var labelTimeUp: UILabel!
     var username:String = "";
+    var pintvol:UIImageView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         
@@ -38,8 +38,13 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         var error:NSError?
         userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
         
+        
         for data in userData as [NSManagedObject] {
-            username = data.valueForKey("naaam")! as! String
+            
+            if((data.valueForKey("naaam")) != nil){
+                username = data.valueForKey("naaam")! as! String
+            }
+
         }
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -56,6 +61,18 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         let imageViewBack = UIImageView(image: UIImage(named: "backsnelpint"))
         self.view.addSubview(imageViewBack)
         
+        let pintleeg = UIImageView(image: UIImage(named: "pintleeg"))
+        pintleeg.frame = CGRectMake(87, 155, 153, 341)
+        self.view.addSubview(pintleeg)
+        
+        pintvol = UIImageView(image: UIImage(named: "pintvol"))
+        pintvol.frame = CGRectMake(85, 154, 153, 344)
+        self.view.addSubview(pintvol)
+        
+        let handen = UIImageView(image: UIImage(named: "handen"))
+        handen.frame = CGRectMake(2, 175, 320, 344)
+        self.view.addSubview(handen)
+        
         self.locationManager = CLLocationManager()
         self.locationManager.delegate = self
         self.locationManager.distanceFilter = 1
@@ -68,12 +85,14 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         self.label.textColor = UIColor.whiteColor()
         self.view.addSubview(self.label)
         
-        self.labelTimeUp = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        self.labelTimeUp.center = CGPointMake(160, 184)
-        self.labelTimeUp.textAlignment = NSTextAlignment.Center
-        self.labelTimeUp.text = "I'am a test label"
-        self.labelTimeUp.textColor = UIColor.whiteColor()
-        self.view.addSubview(self.labelTimeUp)
+        let secretbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        secretbtn.frame = CGRectMake(50, 0, 220, 32)
+        secretbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        secretbtn.setTitle("win", forState: UIControlState.Normal)
+        secretbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        secretbtn.addTarget(self, action: "buttonActionsecret:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(secretbtn)
+        
         
         self.timerr = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         setupTimer()
@@ -81,36 +100,110 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func setupTimer() {
+    func buttonActionsecret(sender:UIButton!)
+    {
         
-        redLayer.frame = CGRect(x: 320-50, y: 120, width: self.seconden, height: 50)
-        redLayer.backgroundColor = UIColor.yellowColor().CGColor
-        self.view.layer.addSublayer(redLayer)
+        self.timerr.invalidate()
+        self.locationManager.stopUpdatingLocation()
         
+        let winpagina = UIImageView(image: UIImage(named: "winlopen"))
+        self.view.addSubview(winpagina)
+        
+        var sec = String(seconden)
+        let parameter = [
+            "tijd": sec,
+            "spel": "snellerdanjepint",
+            "username": self.username
+        ]
+        
+        Alamofire.request(.POST, "http://student.howest.be/matthias.brodelet/20142015/MAIV/BADGET/api/data", parameters: parameter)
+        
+        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: appDelegate.managedObjectContext!)
+        let score = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: appDelegate.managedObjectContext!)
+        
+        score.setValue(sec, forKey: "lopenscore")
+        
+        var error:NSError?
+        
+        if !appDelegate.managedObjectContext!.save(&error) {
+            println("could not save \(error), \(error?.userInfo)")
+        }
         
     }
     
+    func setupTimer() {
+        
+        
+        redLayer.backgroundColor = UIColor.yellowColor().CGColor
+        redLayer.frame = CGRect(x: 0, y: self.seconden, width: 260, height: 400)
+        
+        self.pintvol.layer.mask = redLayer;
+        
+    }
+    
+    
     func update() {
         
-        if( seconden > 0){
+        if( seconden < 332){
             
-            seconden--;
+            seconden++
+            seconden++
+            seconden++
+            seconden++
             
             UIView.animateWithDuration(1.0, animations: {
                 
-                self.redLayer.frame = CGRect(x: 320-50, y: 120, width: self.seconden, height: 50)
+                self.redLayer.frame = CGRect(x: 0, y: self.seconden, width: 260, height: 400)
                 
             })
         }
         
         println(seconden)
         
-        if (seconden == 0){
+        if (seconden == 332){
             println("time is up")
             self.timerr.invalidate()
-            self.labelTimeUp.text = "te laat! \(seconden)"
+            
+            let verlorenpagina = UIImageView(image: UIImage(named: "verlorenpagina"))
+            self.view.addSubview(verlorenpagina)
+            
+            var verlabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
+            verlabel.center = CGPointMake(160, 284)
+            verlabel.textAlignment = NSTextAlignment.Center
+            verlabel.text = "Je pint is leeg"
+            verlabel.textColor = UIColor.whiteColor()
+            self.view.addSubview(verlabel)
+            
+            let backbutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            backbutton.frame = CGRectMake(50, 440, 220, 32)
+            backbutton.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            backbutton.setTitle("Terug naar overzicht", forState: UIControlState.Normal)
+            backbutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            backbutton.addTarget(self, action: "buttonActionBack:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(backbutton)
+            
+            let rebutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            rebutton.frame = CGRectMake(50, 380, 220, 32)
+            rebutton.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            rebutton.setTitle("opnieuw proberen", forState: UIControlState.Normal)
+            rebutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            rebutton.addTarget(self, action: "buttonActionretry:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(rebutton)
+            
             
         }
+        
+    }
+    
+    func buttonActionretry(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(LoopViewController(), animated: true)
+        
+    }
+    
+    func buttonActionBack(sender:UIButton!)
+    {
+        self.navigationController?.popViewControllerAnimated(true);
         
     }
     
@@ -149,12 +242,10 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         let locB = CLLocation(latitude: 50.819594, longitude: 3.274044)
         let dist = lastLocation.distanceFromLocation(locB)
         
-        println( "De afstand is \(dist)");
-        
-        
         if(dist < 25){
-            self.label.text = "ja je bent er! \(round(dist)) \(seconden)"
+            
             self.timerr.invalidate()
+            self.locationManager.stopUpdatingLocation()
             
             var sec = String(seconden)
             let parameter = [

@@ -44,7 +44,7 @@ class GameViewController: UIViewController {
     
     func buttonActionBack(sender:UIButton!)
     {
-        self.navigationController?.popViewControllerAnimated(true);
+        self.navigationController!.pushViewController(ChallengeViewController(), animated: true)
         
     }
     

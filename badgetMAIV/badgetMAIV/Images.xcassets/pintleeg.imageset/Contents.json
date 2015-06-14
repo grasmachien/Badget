@@ -3,16 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "info3.png"
+      "filename" : "pintleeg.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "info3@2x.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "pintleeg@2x.png"
     }
   ],
   "info" : {

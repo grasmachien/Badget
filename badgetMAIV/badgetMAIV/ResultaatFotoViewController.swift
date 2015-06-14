@@ -22,6 +22,7 @@ class ResultaatFotoViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

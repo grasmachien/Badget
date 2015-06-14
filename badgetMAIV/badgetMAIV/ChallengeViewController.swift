@@ -140,6 +140,7 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
     
     func buttonAction(sender:UIButton!)
     {
+        //self.navigationController!.pushViewController(LoopViewController(), animated: true)
         self.navigationController!.pushViewController(LoopViewController(), animated: true)
     }
     
