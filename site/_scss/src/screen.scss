@@ -8,9 +8,306 @@ html {
 body{
 
 	color: #FFFFFF;
-	background-color: #0E233E;
+	background-color: #ff0000;
 	font-family: helvetica;
-	font-size:2.2em;
+	font-size:2.4em;
 	line-height:1.9em;
 
+	
+
 }
+
+.display_non{
+
+	display: none;
+
+
+}
+.dummy_div{
+
+	clear: both;
+	float: none;
+	height: 0px;
+
+}
+
+.header{
+
+
+	height: 700px;
+	background: url("../../assets/img/Header.jpg") no-repeat;
+	background-size: cover;
+
+	h1{
+
+		position: absolute;
+		margin-top: 290px;
+		margin-left: 720px;
+
+		width: 550px;
+		height: 110px;
+		text-indent: -9999999px;
+		background: url("../../assets/img/Header_titel.png") no-repeat;
+
+	}
+
+	.meer_info{
+
+		position: absolute;
+		margin-top: 420px;
+		margin-left: 730px;
+
+		width: 200px;
+		height: 50px;
+		border: 3px solid #b8974b;
+
+		text-align: center;
+
+
+	}
+
+
+}
+
+.menu_header{
+
+	
+
+	.logo{
+
+		position: absolute;
+
+		text-indent: -999999px;
+		width: 101px;
+		height: 65px;
+		background: url("../../assets/img/logo.png") no-repeat;
+
+		margin-left: 100px;
+		margin-top: 20px;
+		
+
+	}
+	
+	ul{
+
+		float: right;
+		margin-top: 40px;
+		margin-right: 100px;
+		
+
+
+		li{
+
+			float: left;
+			margin-left: 30px;
+
+		}
+
+	}
+
+}
+nav{
+
+
+	height: 80px;
+	background-color: #0e233e;
+
+	h1{
+
+		position: absolute;
+
+		text-indent: -999999px;
+		width: 101px;
+		height: 65px;
+		background: url("../../assets/img/logo.png") no-repeat;
+
+		margin-left: 100px;
+		margin-top: 10px;
+
+	}
+
+	ul{
+
+		float: right;
+		margin-top: 20px;
+		margin-right: 100px;
+		
+
+
+		li{
+
+			float: left;
+			margin-left: 30px;
+
+		}
+
+	}
+
+}
+
+.video{
+
+	
+	height: 300px;
+	background: url("../../assets/img/video.jpg") no-repeat;
+	background-size: cover;
+	
+}
+.button_video{
+
+	width: 310px;
+	height: 150px;
+	background: url("../../assets/img/button_video.png") no-repeat 95px 90px;
+
+	padding-top: 190px;
+	margin-left: auto;
+	margin-right: auto;
+
+	text-align: center;
+	color:#B89655;
+
+}
+
+.challenges{
+
+	height: 600px;
+
+	article{
+
+		float: left;
+		width: 480px;
+		height: 600px;
+
+
+		-webkit-font-smoothing: antialiased;
+
+		h1{
+
+			text-align: center;
+
+		}
+
+		p{
+
+			width: 380px;
+			margin: 0 auto;
+			margin-top: 20px;
+
+			line-height: 30px;
+
+			text-align: center;
+
+		}
+	}
+
+	.challenge_1{
+
+		background: url("../../assets/img/challenge_1.jpg") no-repeat;
+
+		.badge_1{
+
+			width: 340px;
+			height: 287px;
+			background: url("../../assets/img/badge_1.png") no-repeat;
+
+			margin-left: 85px;
+			margin-top: 72px;
+
+		}
+
+	}
+
+	.challenge_2{
+
+		background: url("../../assets/img/challenge_2.jpg") no-repeat;	
+
+		.badge_2{
+
+			width: 301px;
+			height: 259px;
+			background: url("../../assets/img/badge_2.png") no-repeat;
+
+			margin-left: 90px;
+			margin-top: 90px;
+
+		}
+
+	}
+
+	.challenge_3{
+
+		background: url("../../assets/img/challenge_3.jpg") no-repeat;	
+
+		.badge_3{
+
+			width: 320px;
+			height: 266px;
+			background: url("../../assets/img/badge_3.png") no-repeat;
+
+			margin-left: 110px;
+			margin-top: 90px;
+
+		}
+
+	}
+
+
+}
+
+.app{
+
+	height: 810px;
+	background: url("../../assets/img/iphone.png") no-repeat 40px 220px ,url("../../assets/img/app.jpg") no-repeat;
+	background-size: 50% , cover;
+
+	.app_text{
+
+
+
+		width: 520px;
+		height: 300px;
+
+		margin-left: 740px;
+		padding-top: 180px;
+
+		h1{
+
+			text-align: center;
+
+		}
+
+		.lijn{
+
+			width: 270px;
+			height: 6px;
+			background-color: #ffffff;
+
+			margin-left: 120px;
+			margin-bottom: 20px;
+
+		}
+
+		p{
+
+			line-height: 30px;
+
+		}
+
+		.app_store{
+
+			width: 119;
+			height: 40px;
+			background: url("../../assets/img/app_store.png") no-repeat;
+
+			margin-top: 10px;
+
+		}
+
+
+	}
+
+
+}
+
+
+
