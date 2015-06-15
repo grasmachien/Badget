@@ -91,7 +91,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         secretbtn.setTitle("win", forState: UIControlState.Normal)
         secretbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         secretbtn.addTarget(self, action: "buttonActionsecret:", forControlEvents: UIControlEvents.TouchUpInside)
-        secretbtn.alpha = 0
+        secretbtn.alpha = 0.3
         self.view.addSubview(secretbtn)
         
         

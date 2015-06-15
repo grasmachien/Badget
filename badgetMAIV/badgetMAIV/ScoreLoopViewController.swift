@@ -1,5 +1,5 @@
 //
-//  ScoreBalansViewController.swift
+//  ScoreLoopViewController.swift
 //  badgetMAIV
 //
 //  Created by Matthias Brodelet on 15/06/15.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Alamofire
 
-class ScoreBalansViewController: UIViewController {
+class ScoreLoopViewController: UIViewController {
     
     var appDelegate:AppDelegate {
         get {
@@ -36,7 +36,6 @@ class ScoreBalansViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         let imageViewBack = UIImageView(image: UIImage(named: "scorebord"))
         self.view.addSubview(imageViewBack)
         
@@ -57,7 +56,7 @@ class ScoreBalansViewController: UIViewController {
         }
         
         
-        Alamofire.request(.GET, "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data/balanstop", encoding: .JSON)
+        Alamofire.request(.GET, "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data/lopentop", encoding: .JSON)
             .responseJSON { (request, response, data, error) -> Void in
                 println(request)
                 println(response)
@@ -73,7 +72,7 @@ class ScoreBalansViewController: UIViewController {
                 
                 var username3 = json[2]["username"]
                 var score3 = json[2]["score"]
-
+                
                 
                 self.username1label = UILabel(frame: CGRectMake(0, 0, 200, 21))
                 self.username1label.center = CGPointMake(173, 260)
@@ -85,7 +84,7 @@ class ScoreBalansViewController: UIViewController {
                 self.score1label = UILabel(frame: CGRectMake(0, 0, 200, 21))
                 self.score1label.center = CGPointMake(273, 260)
                 self.score1label.textAlignment = NSTextAlignment.Center
-                self.score1label.text = "\(score1)"
+                self.score1label.text = "\(score1) cl"
                 self.score1label.textColor = UIColor.whiteColor()
                 self.view.addSubview(self.score1label)
                 
@@ -99,7 +98,7 @@ class ScoreBalansViewController: UIViewController {
                 self.score2label = UILabel(frame: CGRectMake(0, 0, 200, 21))
                 self.score2label.center = CGPointMake(273, 298)
                 self.score2label.textAlignment = NSTextAlignment.Center
-                self.score2label.text = "\(score2)"
+                self.score2label.text = "\(score2) cl"
                 self.score2label.textColor = UIColor.whiteColor()
                 self.view.addSubview(self.score2label)
                 
@@ -113,13 +112,13 @@ class ScoreBalansViewController: UIViewController {
                 self.score3label = UILabel(frame: CGRectMake(0, 0, 200, 21))
                 self.score3label.center = CGPointMake(273, 336)
                 self.score3label.textAlignment = NSTextAlignment.Center
-                self.score3label.text = "\(score3)"
+                self.score3label.text = "\(score3) cl"
                 self.score3label.textColor = UIColor.whiteColor()
                 self.view.addSubview(self.score3label)
                 
         }
         
-
+        
         
         let backbutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         backbutton.frame = CGRectMake(50, 440, 220, 32)
@@ -132,7 +131,7 @@ class ScoreBalansViewController: UIViewController {
         self.labelscore = UILabel(frame: CGRectMake(0, 0, 200, 21))
         self.labelscore.center = CGPointMake(273, 158)
         self.labelscore.textAlignment = NSTextAlignment.Center
-        self.labelscore.text = "\(self.score!)"
+        self.labelscore.text = "\(self.score!) cl"
         self.labelscore.textColor = UIColor.whiteColor()
         self.view.addSubview(self.labelscore)
         
@@ -142,8 +141,6 @@ class ScoreBalansViewController: UIViewController {
         self.labelusername.text = "\(self.username)"
         self.labelusername.textColor = UIColor.whiteColor()
         self.view.addSubview(self.labelusername)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -156,6 +153,7 @@ class ScoreBalansViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true);
         
     }
+    
 
     /*
     // MARK: - Navigation

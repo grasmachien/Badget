@@ -39,6 +39,21 @@ class ItemsDAO extends DAO {
 			return $result;
 		}
 		return [];
+	}
+
+	public function getWinnersLopen() {
+		$sql = "SELECT * 
+						FROM `badget_data` 
+						WHERE `spel` = :spel
+						ORDER BY score DESC LIMIT 3";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':spel', "snellerdanjepint");
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if($result){
+			return $result;
+		}
+		return [];
 	}	
 
 

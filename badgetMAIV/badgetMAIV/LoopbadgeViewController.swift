@@ -73,6 +73,10 @@ class LoopbadgeViewController: UIViewController {
     {
         println("scorebord")
         
+        let scorebord = ScoreLoopViewController()
+        scorebord.score = self.score
+        self.navigationController!.pushViewController(scorebord, animated: true)
+        
     }
     
 

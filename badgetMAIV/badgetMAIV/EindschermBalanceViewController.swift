@@ -66,6 +66,10 @@ class EindschermBalanceViewController: UIViewController {
         
         if(self.gewonnenverloren == "gewonnen"){
             
+            var tabArray = self.tabBarController?.tabBar.items as NSArray!
+            var tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+            tabItem.badgeValue = "1"
+            
             let gewonnenback = UIImageView(image: UIImage(named: "winstabieler"))
             self.view.addSubview(gewonnenback)
             

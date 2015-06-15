@@ -9,6 +9,12 @@ $app->get('/data/balanstop/?', function() use ($itemsDAO){
     exit();
 });
 
+$app->get('/data/lopentop/?', function() use ($itemsDAO){
+    header("Content-Type: application/json");
+    echo json_encode($itemsDAO->getWinnersLopen(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
 
 //POST -> /tweets/
 $app->post('/data/?', function() use ($app, $itemsDAO){
