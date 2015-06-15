@@ -201,7 +201,6 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
             })
         }
         
-        println(seconden)
         
         if (seconden == 332){
             println("time is up")

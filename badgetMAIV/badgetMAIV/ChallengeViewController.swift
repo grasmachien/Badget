@@ -62,12 +62,8 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
         
         
         if(username.isEmpty){
-            println("geen naam ingevoerd")
             self.navigationController!.pushViewController(NameInputViewController(), animated: true)
             
-            
-        }else{
-            println("je naam is \(username)")
             
         }
         
@@ -140,7 +136,6 @@ class ChallengeViewController: UIViewController, UINavigationControllerDelegate 
     
     func buttonAction(sender:UIButton!)
     {
-        //self.navigationController!.pushViewController(LoopViewController(), animated: true)
         self.navigationController!.pushViewController(LoopViewController(), animated: true)
     }
     

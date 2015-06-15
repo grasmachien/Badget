@@ -26,8 +26,6 @@
 	<string>Zonder toestemming kunnen we geen locatie tonen.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Zonder toestemming kunnen we geen locatie tonen.</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchImage</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -29,6 +29,10 @@ class BadgesViewController: UIViewController {
     var lopenNot:UIImageView!
     var fotoNot:UIImageView!
     
+    var one:Bool = false;
+    var two:Bool = false;
+    var three:Bool = false;
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
@@ -82,27 +86,30 @@ class BadgesViewController: UIViewController {
         
         
         if(self.balans == ""){
-            println("balans badge niet behaald")
+            
             balansNot = UIImageView(image: UIImage(named: "nonbadge"))
             balansNot.frame = CGRectMake(100, 150, 137, 123)
             self.view.addSubview(balansNot)
+            self.one = true
+            
         }else{
-            println("balans badge behaald")
             
             balansbutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
             balansbutton.frame = CGRectMake(100, 150, 137, 123)
             balansbutton.setBackgroundImage(UIImage(named: "balansbadge"), forState: UIControlState.Normal)
             balansbutton.addTarget(self, action: "buttonAction2:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(balansbutton)
+            
         }
         
         if(self.lopen == ""){
-            println("loop badge niet behaald")
+
             lopenNot = UIImageView(image: UIImage(named: "nonbadge"))
             lopenNot.frame = CGRectMake(20, 273, 137, 123)
             self.view.addSubview(lopenNot)
+            self.two = true
+            
         }else{
-            println("loop badge behaald")
             
             loopbutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
             loopbutton.frame = CGRectMake(20, 273, 137, 123)
@@ -112,13 +119,13 @@ class BadgesViewController: UIViewController {
         }
         
         if(self.foto == nil){
-            println("foto badge niet behaald")
+            
             fotoNot = UIImageView(image: UIImage(named: "nonbadge"))
             fotoNot.frame = CGRectMake(170, 273, 137, 123)
             self.view.addSubview(fotoNot)
+            self.three = true
+            
         }else{
-            println("foto badge behaald")
-
             
             fotobutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
             fotobutton.frame = CGRectMake(170, 273, 144, 121)
@@ -151,7 +158,6 @@ class BadgesViewController: UIViewController {
     
     func buttonAction(sender:UIButton!)
     {
-        println("clicked on photo badge")
         
         let fotobadge = FotobadgeViewController()
         fotobadge.image = self.foto
@@ -160,7 +166,6 @@ class BadgesViewController: UIViewController {
     
     func buttonAction1(sender:UIButton!)
     {
-        println("clicked on loop badge")
         
         let loopbadge = LoopbadgeViewController()
         loopbadge.score = self.lopen
@@ -169,14 +174,29 @@ class BadgesViewController: UIViewController {
     
     func buttonAction2(sender:UIButton!)
     {
-        println("clicked on balans badge")
+
         let balansbadge = BalansbadgeViewController()
         balansbadge.score = self.balans
         self.navigationController!.pushViewController(balansbadge, animated: true)
     }
     
     override func viewDidDisappear(animated: Bool) {
-
+        
+        if(self.one == true){
+            self.lopenNot.removeFromSuperview()
+            self.one = false
+        }
+        
+        if(self.two == true){
+            self.balansNot.removeFromSuperview()
+            self.two = false
+        }
+        
+        if(self.three == true){
+            self.fotoNot.removeFromSuperview()
+            self.three = false
+        }
+        
         
         super.viewDidDisappear(animated)
     }
