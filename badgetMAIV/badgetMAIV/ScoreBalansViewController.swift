@@ -129,6 +129,14 @@ class ScoreBalansViewController: UIViewController {
         backbutton.addTarget(self, action: "buttonActionBack:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(backbutton)
         
+        let replaybtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        replaybtn.frame = CGRectMake(50, 390, 220, 32)
+        replaybtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+        replaybtn.setTitle("Opnieuw spelen!", forState: UIControlState.Normal)
+        replaybtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        replaybtn.addTarget(self, action: "replaybtn:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(replaybtn)
+        
         self.labelscore = UILabel(frame: CGRectMake(0, 0, 200, 21))
         self.labelscore.center = CGPointMake(273, 158)
         self.labelscore.textAlignment = NSTextAlignment.Center
@@ -154,6 +162,12 @@ class ScoreBalansViewController: UIViewController {
     func buttonActionBack(sender:UIButton!)
     {
         self.navigationController?.popViewControllerAnimated(true);
+        
+    }
+    
+    func replaybtn(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(GameViewController(), animated: true)
         
     }
 

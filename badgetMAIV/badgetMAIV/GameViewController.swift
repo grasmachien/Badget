@@ -104,10 +104,7 @@ class GameViewController: UIViewController {
                 
                 let rotation = atan(data.gravity.x) - M_PI
                 var rot = data.gravity.x*3;
-                println("ROTATION IS \(rot)")
-                
                 var resRot = rot - randomRot;
-                println("AANGEPASTE ROTATIE \(resRot)");
                 
                 UIView.animateWithDuration(0.2, animations: {
                     // animating `transform` allows us to change 2D geometry of the object
@@ -144,8 +141,6 @@ extension GameViewController : ColorServiceManagerDelegate {
             println("Connections: \(connectedDevices)")
         
             if String(stringInterpolationSegment: connectedDevices).isEmpty {
-            
-                
                 
             }else{
                 let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
@@ -165,7 +160,6 @@ extension GameViewController : ColorServiceManagerDelegate {
             switch colorString {
             case "red":
                 
-                println("je bent gewonnen")
                 
                 self.motionManager.stopDeviceMotionUpdates()
                 self.timerr.invalidate()

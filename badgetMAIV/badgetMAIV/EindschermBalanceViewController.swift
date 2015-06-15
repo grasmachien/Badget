@@ -62,6 +62,29 @@ class EindschermBalanceViewController: UIViewController {
             
             let verlorenback = UIImageView(image: UIImage(named: "verlorenpagina"))
             self.view.addSubview(verlorenback)
+            
+            var labelverloren = UILabel(frame: CGRectMake(0, 0, 200, 21))
+            labelverloren.center = CGPointMake(197, 285)
+            labelverloren.textAlignment = NSTextAlignment.Left
+            labelverloren.text = "Je pint is gevallen!"
+            labelverloren.textColor = UIColor.whiteColor()
+            self.view.addSubview(labelverloren)
+            
+            let overzichtbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            overzichtbtn.frame = CGRectMake(50, 440, 220, 32)
+            overzichtbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            overzichtbtn.setTitle("Terug naar overzicht", forState: UIControlState.Normal)
+            overzichtbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            overzichtbtn.addTarget(self, action: "buttonActionOverzicht:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(overzichtbtn)
+            
+            let rebutton   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            rebutton.frame = CGRectMake(50, 380, 220, 32)
+            rebutton.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            rebutton.setTitle("opnieuw proberen", forState: UIControlState.Normal)
+            rebutton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            rebutton.addTarget(self, action: "buttonActionretry:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(rebutton)
         }
         
         if(self.gewonnenverloren == "gewonnen"){
@@ -74,11 +97,26 @@ class EindschermBalanceViewController: UIViewController {
             self.view.addSubview(gewonnenback)
             
             self.labelscore = UILabel(frame: CGRectMake(0, 0, 200, 21))
-            self.labelscore.center = CGPointMake(160, 370)
-            self.labelscore.textAlignment = NSTextAlignment.Center
+            self.labelscore.center = CGPointMake(200, 333)
+            self.labelscore.textAlignment = NSTextAlignment.Left
             self.labelscore.text = "Je behaalde \(self.dataFromScore!)"
             self.labelscore.textColor = UIColor.whiteColor()
             self.view.addSubview(self.labelscore)
+            
+            var labelgewonnen = UILabel(frame: CGRectMake(0, 0, 200, 21))
+            labelgewonnen.center = CGPointMake(200, 373)
+            labelgewonnen.textAlignment = NSTextAlignment.Left
+            labelgewonnen.text = "Badge behaald!"
+            labelgewonnen.textColor = UIColor.whiteColor()
+            self.view.addSubview(labelgewonnen)
+            
+            let overzichtbtn   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            overzichtbtn.frame = CGRectMake(50, 440, 220, 32)
+            overzichtbtn.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            overzichtbtn.setTitle("Terug naar overzicht", forState: UIControlState.Normal)
+            overzichtbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            overzichtbtn.addTarget(self, action: "buttonActionOverzicht:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(overzichtbtn)
             
             let parameter = [
                 "tijd": String(self.dataFromScore!),
@@ -111,6 +149,18 @@ class EindschermBalanceViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func buttonActionOverzicht(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(ChallengeViewController(), animated: true)
+        
+    }
+    
+    func buttonActionretry(sender:UIButton!)
+    {
+        self.navigationController!.pushViewController(GameViewController(), animated: true)
+        
     }
     
 
