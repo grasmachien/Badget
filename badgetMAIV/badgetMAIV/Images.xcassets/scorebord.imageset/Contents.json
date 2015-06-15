@@ -3,16 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "loopbadgeback.png"
+      "filename" : "scorebord.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "loopbadgeback@2x.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "scorebord@2x.png"
     }
   ],
   "info" : {

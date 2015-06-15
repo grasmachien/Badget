@@ -93,7 +93,7 @@ class GameViewController: UIViewController {
         }
         
         self.pint.image = UIImage(named: "pint")
-        self.pint.frame = CGRectMake(20, 250, 275, 377)
+        self.pint.frame = CGRectMake(20, 340, 275, 377)
         self.pint.layer.anchorPoint = CGPointMake(0.5, 1.0);
         self.view.addSubview(pint)
         

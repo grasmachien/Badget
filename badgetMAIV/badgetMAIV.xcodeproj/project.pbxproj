@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0F0FCC1B2F098600B87197 /* BalansbadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F0FCB1B2F098600B87197 /* BalansbadgeViewController.swift */; };
+		6C0F0FCE1B2F132900B87197 /* ScoreBalansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F0FCD1B2F132900B87197 /* ScoreBalansViewController.swift */; };
+		6C3DBF881B2F207300AE053A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3DBF871B2F207300AE053A /* SwiftyJSON.swift */; };
 		6C6B4DB01B28CAAF003877F2 /* ResultaatFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6B4DAF1B28CAAF003877F2 /* ResultaatFotoViewController.swift */; };
 		6C7846321B2E14250022D7A6 /* LoopbadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7846311B2E14250022D7A6 /* LoopbadgeViewController.swift */; };
 		6C7846351B2E19920022D7A6 /* FotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7846341B2E19920022D7A6 /* FotoDetailViewController.swift */; };
@@ -97,6 +100,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C0F0FCB1B2F098600B87197 /* BalansbadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalansbadgeViewController.swift; sourceTree = "<group>"; };
+		6C0F0FCD1B2F132900B87197 /* ScoreBalansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBalansViewController.swift; sourceTree = "<group>"; };
+		6C3DBF871B2F207300AE053A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		6C6B4DAF1B28CAAF003877F2 /* ResultaatFotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultaatFotoViewController.swift; sourceTree = "<group>"; };
 		6C7846311B2E14250022D7A6 /* LoopbadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopbadgeViewController.swift; sourceTree = "<group>"; };
 		6C7846341B2E19920022D7A6 /* FotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotoDetailViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +158,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C0F0FC71B2F096F00B87197 /* balans */ = {
+			isa = PBXGroup;
+			children = (
+				6C0F0FCB1B2F098600B87197 /* BalansbadgeViewController.swift */,
+				6C0F0FCD1B2F132900B87197 /* ScoreBalansViewController.swift */,
+			);
+			name = balans;
+			sourceTree = "<group>";
+		};
 		6C7846331B2E197B0022D7A6 /* foto */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				6CAD88351B1E3AD0004D3A24 /* BadgesViewController.swift */,
+				6C0F0FC71B2F096F00B87197 /* balans */,
 				6C7846381B2E30B70022D7A6 /* loop */,
 				6C7846331B2E197B0022D7A6 /* foto */,
 			);
@@ -231,6 +247,7 @@
 		6CAD884D1B1F66B8004D3A24 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C3DBF871B2F207300AE053A /* SwiftyJSON.swift */,
 				6CC053711B1CADBE005F6A8A /* Alamofire.xcodeproj */,
 				6CAD884B1B1F3F20004D3A24 /* CoreLocation.framework */,
 				6CAD88491B1F3F0E004D3A24 /* MapKit.framework */,
@@ -451,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C0F0FCC1B2F098600B87197 /* BalansbadgeViewController.swift in Sources */,
 				6CA2F9051B2C60B500377598 /* NameInputViewController.swift in Sources */,
 				6CAD88401B1F39B8004D3A24 /* GameViewController.swift in Sources */,
 				6CC053571B1CAD88005F6A8A /* ViewController.swift in Sources */,
@@ -458,8 +476,10 @@
 				6CAD883B1B1E5259004D3A24 /* InfoSliderView.swift in Sources */,
 				6CA44D5C1B221CC900BB4E90 /* LoopIntroView.swift in Sources */,
 				6C7846321B2E14250022D7A6 /* LoopbadgeViewController.swift in Sources */,
+				6C3DBF881B2F207300AE053A /* SwiftyJSON.swift in Sources */,
 				6CAD88421B1F3C73004D3A24 /* LoopViewController.swift in Sources */,
 				6C6B4DB01B28CAAF003877F2 /* ResultaatFotoViewController.swift in Sources */,
+				6C0F0FCE1B2F132900B87197 /* ScoreBalansViewController.swift in Sources */,
 				6CA2F8F21B2AF5FF00377598 /* EindschermBalanceViewController.swift in Sources */,
 				6CAD88361B1E3AD0004D3A24 /* BadgesViewController.swift in Sources */,
 				6C7846351B2E19920022D7A6 /* FotoDetailViewController.swift in Sources */,

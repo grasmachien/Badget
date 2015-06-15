@@ -90,7 +90,7 @@ class BadgesViewController: UIViewController {
             println("balans badge behaald")
             
             balansbutton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-            balansbutton.frame = CGRectMake(20, 273, 137, 123)
+            balansbutton.frame = CGRectMake(100, 150, 137, 123)
             balansbutton.setBackgroundImage(UIImage(named: "balansbadge"), forState: UIControlState.Normal)
             balansbutton.addTarget(self, action: "buttonAction2:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(balansbutton)
@@ -140,6 +140,8 @@ class BadgesViewController: UIViewController {
         self.view.addSubview(imageViewBack)
 
         // Do any additional setup after loading the view.
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -168,7 +170,9 @@ class BadgesViewController: UIViewController {
     func buttonAction2(sender:UIButton!)
     {
         println("clicked on balans badge")
-//        self.navigationController!.pushViewController(LoopbadgeViewController(), animated: true)
+        let balansbadge = BalansbadgeViewController()
+        balansbadge.score = self.balans
+        self.navigationController!.pushViewController(balansbadge, animated: true)
     }
     
     override func viewDidDisappear(animated: Bool) {

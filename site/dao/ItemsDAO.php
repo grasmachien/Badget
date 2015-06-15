@@ -24,7 +24,24 @@ class ItemsDAO extends DAO {
 			return $result;
 		}
 		return [];
+	}
+
+	public function getWinnersBalans() {
+		$sql = "SELECT * 
+						FROM `badget_data` 
+						WHERE `spel` = :spel
+						ORDER BY score DESC LIMIT 3";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':spel', "versus");
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if($result){
+			return $result;
+		}
+		return [];
 	}	
+
+
 
 	public function selectByUserId($user_id) {
 		$sql = "SELECT * 

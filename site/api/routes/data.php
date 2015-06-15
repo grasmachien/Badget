@@ -3,6 +3,12 @@
 $itemsDAO = new itemsDAO();
 
 
+$app->get('/data/balanstop/?', function() use ($itemsDAO){
+    header("Content-Type: application/json");
+    echo json_encode($itemsDAO->getWinnersBalans(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
 
 //POST -> /tweets/
 $app->post('/data/?', function() use ($app, $itemsDAO){
