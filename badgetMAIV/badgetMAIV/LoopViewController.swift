@@ -59,7 +59,11 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
         secretbtn.setTitle("presentatie", forState: UIControlState.Normal)
         secretbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         secretbtn.addTarget(self, action: "buttonActionsecret:", forControlEvents: UIControlEvents.TouchUpInside)
+        secretbtn.alpha = 0
         self.view.addSubview(secretbtn)
+        
+        
+
     }
     
     func buttonActionBack(sender:UIButton!)
@@ -106,24 +110,22 @@ class LoopViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!){
         let lastLocation = locations.last as! CLLocation
         println("Did update locations: \(lastLocation.coordinate.latitude) - \(lastLocation.coordinate.longitude)")
-    
-        let locA = CLLocation(latitude: 50.822965, longitude: 3.260418)
+  
+        let locA = CLLocation(latitude: 50.824809, longitude: 3.264338)
         let dist = lastLocation.distanceFromLocation(locA)
         
         
         if(dist < 25){
             
-            self.label.text = "ok! \(round(dist))"
-            
-            button.frame = CGRectMake(50, 30, 220, 32)
+            button.frame = CGRectMake(50,390, 220, 32)
             button.setBackgroundImage(UIImage(named: "btn"), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             button.setTitle("Begin!", forState: UIControlState.Normal)
             button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(button)
-            //self.label.removeFromSuperview()
+            self.label.removeFromSuperview()
             
         }else{
-            println("begeef je naar de maes stand!")
             self.label.text = "Je bent \(round(dist)) meter van de stand!"
             button.removeFromSuperview()
         }

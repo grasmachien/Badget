@@ -91,6 +91,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         secretbtn.setTitle("win", forState: UIControlState.Normal)
         secretbtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         secretbtn.addTarget(self, action: "buttonActionsecret:", forControlEvents: UIControlEvents.TouchUpInside)
+        secretbtn.alpha = 0
         self.view.addSubview(secretbtn)
         
         
@@ -287,7 +288,7 @@ class LoopTimerViewController: UIViewController, CLLocationManagerDelegate {
         let lastLocation = locations.last as! CLLocation
         //println("Did update locations: \(lastLocation.coordinate.latitude) - \(lastLocation.coordinate.longitude)")
         
-        let locB = CLLocation(latitude: 50.819594, longitude: 3.274044)
+        let locB = CLLocation(latitude: 50.827659, longitude: 3.259542)
         let dist = lastLocation.distanceFromLocation(locB)
         
         if(dist < 25){

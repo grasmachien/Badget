@@ -114,7 +114,7 @@ class BadgesViewController: UIViewController {
         if(self.foto == nil){
             println("foto badge niet behaald")
             fotoNot = UIImageView(image: UIImage(named: "nonbadge"))
-            fotoNot.frame = CGRectMake(100, 273, 137, 123)
+            fotoNot.frame = CGRectMake(170, 273, 137, 123)
             self.view.addSubview(fotoNot)
         }else{
             println("foto badge behaald")
