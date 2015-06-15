@@ -35,7 +35,11 @@ class EindschermBalanceViewController: UIViewController {
         userData = appDelegate.managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
         
         for data in userData as [NSManagedObject] {
-            username = data.valueForKey("naaam")! as! String
+            
+            if((data.valueForKey("naaam")) != nil){
+                username = data.valueForKey("naaam")! as! String
+            }
+            
         }
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
