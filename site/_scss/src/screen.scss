@@ -8,7 +8,7 @@ html {
 body{
 
 	color: #FFFFFF;
-	background-color: #ff0000;
+	background-color: #0E233E;
 	font-family: helvetica;
 	font-size:2.4em;
 	line-height:1.9em;
@@ -31,6 +31,7 @@ body{
 
 }
 
+
 .header{
 
 
@@ -38,34 +39,85 @@ body{
 	background: url("../../assets/img/Header.jpg") no-repeat;
 	background-size: cover;
 
-	h1{
-
-		position: absolute;
-		margin-top: 290px;
-		margin-left: 720px;
-
-		width: 550px;
-		height: 110px;
-		text-indent: -9999999px;
-		background: url("../../assets/img/Header_titel.png") no-repeat;
+	.content_pint{
+		
+		visibility: hidden;
 
 	}
 
-	.meer_info{
+	.content_header{
 
-		position: absolute;
-		margin-top: 420px;
-		margin-left: 730px;
+		width: 1150px;
+		height: 510px;
 
-		width: 200px;
-		height: 50px;
-		border: 3px solid #b8974b;
+		margin: 0 auto;
+		padding-top: 187px;
 
-		text-align: center;
+
+		.handen{
+
+			
+			width: 562px;
+			height: 514px;
+
+			float: left;
+
+			background: url("../../assets/img/Header_handen.png") no-repeat;
+
+
+		}
+
+		h1{
+
+			//position: absolute;
+			// margin-top: 290px;
+			// margin-left: 720px;
+
+			float: left;
+			margin-top: 50px;
+			margin-left: 20px;
+			
+
+			width: 550px;
+			height: 110px;
+
+			font-family: aachen;
+			font-size: 2.4em;
+
+			-webkit-font-smoothing: antialiased;
+
+			span{
+
+				font-size: 0.7em;
+				
+
+			}
+			
+
+		}
+
+		.meer_info{
+
+			//position: absolute;
+			// margin-top: 420px;
+			// margin-left: 730px;
+			
+			float: left;
+			margin-top: 10px;
+			margin-left: 20px;
+			
+
+			width: 200px;
+			height: 50px;
+			border: 3px solid #b8974b;
+
+			text-align: center;
+
+
+		}
 
 
 	}
-
 
 }
 
@@ -93,13 +145,31 @@ body{
 		float: right;
 		margin-top: 40px;
 		margin-right: 100px;
-		
 
+
+		font-family: aachen;
+		font-size: 1em;
+
+		-webkit-font-smoothing: antialiased;
 
 		li{
 
 			float: left;
 			margin-left: 30px;
+
+
+			a{
+
+				color:#ffffff;
+				text-decoration: none;
+
+				&:hover{
+
+					color:#B89655;
+
+				}
+
+			}
 
 		}
 
@@ -131,6 +201,11 @@ nav{
 		float: right;
 		margin-top: 20px;
 		margin-right: 100px;
+
+		font-family: aachen;
+		font-size: 1em;
+
+		-webkit-font-smoothing: antialiased;
 		
 
 
@@ -138,6 +213,20 @@ nav{
 
 			float: left;
 			margin-left: 30px;
+
+
+			a{
+
+				color:#ffffff;
+				text-decoration: none;
+
+				&:hover{
+
+					color:#B89655;
+
+				}
+
+			}
 
 		}
 
@@ -185,6 +274,11 @@ nav{
 
 			text-align: center;
 
+			font-family: aachen;
+			font-size: 1.2em;
+
+			-webkit-font-smoothing: antialiased;
+
 		}
 
 		p{
@@ -193,12 +287,22 @@ nav{
 			margin: 0 auto;
 			margin-top: 20px;
 
+			font-size: .8em;
 			line-height: 30px;
 
 			text-align: center;
 
 		}
+
 	}
+
+}
+
+.center_challenges{
+
+	margin: 0 auto;
+	width: 1440px;
+
 
 	.challenge_1{
 
@@ -206,11 +310,12 @@ nav{
 
 		.badge_1{
 
-			width: 340px;
-			height: 287px;
+			width: 320px;
+			height: 270px;
 			background: url("../../assets/img/badge_1.png") no-repeat;
 
-			margin-left: 85px;
+			margin-left: auto;
+			margin-right: auto;
 			margin-top: 72px;
 
 		}
@@ -223,12 +328,13 @@ nav{
 
 		.badge_2{
 
-			width: 301px;
-			height: 259px;
+			width: 320px;
+			height: 270px;
 			background: url("../../assets/img/badge_2.png") no-repeat;
 
-			margin-left: 90px;
-			margin-top: 90px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 72px;
 
 		}
 
@@ -241,24 +347,24 @@ nav{
 		.badge_3{
 
 			width: 320px;
-			height: 266px;
+			height: 270px;
 			background: url("../../assets/img/badge_3.png") no-repeat;
 
-			margin-left: 110px;
-			margin-top: 90px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 72px;
 
 		}
 
 	}
-
 
 }
 
 .app{
 
 	height: 810px;
-	background: url("../../assets/img/iphone.png") no-repeat 40px 220px ,url("../../assets/img/app.jpg") no-repeat;
-	background-size: 50% , cover;
+	background: url("../../assets/img/iphone.png") no-repeat 40px bottom ,url("../../assets/img/app_2.jpg") no-repeat;
+	background-size: 45% , cover;
 
 	.app_text{
 
@@ -267,12 +373,19 @@ nav{
 		width: 520px;
 		height: 300px;
 
-		margin-left: 740px;
+		float: right;
+
+		margin-right: 140px;
 		padding-top: 180px;
 
 		h1{
 
 			text-align: center;
+
+			font-family: aachen;
+			font-size: 2.2em;
+
+			-webkit-font-smoothing: antialiased;
 
 		}
 
@@ -283,23 +396,26 @@ nav{
 			background-color: #ffffff;
 
 			margin-left: 120px;
+			margin-top: 10px;
 			margin-bottom: 20px;
 
 		}
 
 		p{
 
+			
 			line-height: 30px;
+
 
 		}
 
 		.app_store{
 
-			width: 119;
+			width: 119px;
 			height: 40px;
 			background: url("../../assets/img/app_store.png") no-repeat;
 
-			margin-top: 10px;
+			margin-top: 25px;
 
 		}
 
@@ -309,5 +425,386 @@ nav{
 
 }
 
+.statistieken{
+
+	height: 220px;
+	background: url("../../assets/img/statistieken.jpg") no-repeat;
+	background-size: cover;
+
+	.center{
+
+
+		width: 1260px;
+		margin: 0 auto;
+
+		article{
+
+			float: left;
+			width: 400px;
+
+			color:#B89655;
+
+			p{
+
+				margin-top: 70px;
+
+				text-align: center;
+				font-family: aachen;
+				font-size: 1.5em;
+				-webkit-font-smoothing: antialiased;
+
+			}
+
+			h1{
+
+				text-align: center;
+				font-family: aachen;
+				font-size: 1.2em;
+				-webkit-font-smoothing: antialiased;
+
+			}
+
+			.lijn{
+
+				width: 130px;
+				height: 4px;
+				background-color: #B89655;
+
+				margin: 0 auto;
+				margin-bottom: 20px;
+
+			}
+
+		}
+
+	}
+
+}
+
+.geuploade_fotos{
+
+	height: 1200px;
+	background: url("../../assets/img/fotos.jpg") no-repeat;
+	background-size: cover;
+
+	h1{
+
+		padding-top: 70px;
+		margin-bottom: 20px;
+		text-align: center;
+		font-family: aachen;
+		font-size: 2.2em;
+		-webkit-font-smoothing: antialiased;
+
+	}
+
+	.lijn{
+
+		width: 270px;
+		height: 6px;
+		background-color: #ffffff;
+
+		margin: 0 auto;
+
+	}
+
+	.container{
+
+		width: 960px;
+		height: 960px;
+
+		margin: 0 auto;
+		margin-top: 40px;
+
+		
+		.foto{
+
+			width: 294px;
+			height: 294px;
+
+			border: 8px solid #ffffff;
+			margin: 4px 5px;
+
+
+		}
+
+	}
+
+}
+
+footer{
+
+	height: 30px;
+	background-color: #FBFAF6;
+
+	color: black;
+	font-size: 0.5em;
+	text-align: center;
+
+
+}
+
+
+@media only screen and (max-width: 1440px){
+
+
+	.center_challenges{
+
+		width: 100%;
+			
+		article{
+
+			width: 33%;
+
+			p{
+
+				width: 80%;
+
+
+			}
+
+		}	
+
+
+	}
+
+	.center{
+
+		width: 100% !important;
+
+
+		article{
+
+			width: 33% !important;
+
+		}
+
+		.lijn{
+
+			width: 30% !important;
+
+
+		}
+
+
+	}
+
+
+}
+
+@media only screen and (max-width: 1220px){
+
+
+	//app
+		
+	.app{
+
+		height: 810px;
+		background: url("../../assets/img/app_2.jpg") no-repeat;
+		background-size: cover;
+
+		.app_text{
+
+			float: none;
+			margin: 0 auto;
+
+			p{
+
+				text-align: center;
+
+			}
+
+			.app_store{
+
+
+				
+				margin: 0 auto;
+				margin-top: 25px;
+
+
+			}
+
+		}
+
+	}
+
+
+
+}
+
+@media only screen and (max-width: 1095px){
+
+	//header
+
+	.content_header{
+
+		display: none;
+
+
+	}
+
+	.content_pint{
+
+		visibility: visible !important;
+
+		.pint{
+
+			width: 417px;
+			height: 413px;
+			background: url("../../assets/img/Header_pint.png") no-repeat;
+
+		}
+
+		h1{
+
+			float: left;
+			margin-top: 50px;
+			margin-left: 20px;
+			
+
+			width: 550px;
+			height: 110px;
+
+			font-family: aachen;
+			font-size: 2.4em;
+
+			-webkit-font-smoothing: antialiased;
+
+			span{
+
+				font-size: 0.7em;
+				
+
+			}
+
+		}
+
+		.meer_info{
+
+
+
+		}
+	}
+
+
+	//challenges
+
+	
+	.challenges{
+
+		article{
+
+			width: 100%;
+			height: 600px;
+
+		}
+
+	}
+
+	.center_challenges{
+
+		.challenge_1{
+
+			background: url("../../assets/img/challenge_1_bg.jpg") no-repeat;
+			background-size: cover;	
+
+		}
+
+		.challenge_2{
+
+			background: url("../../assets/img/challenge_2_bg.jpg") no-repeat;
+			background-size: cover;	
+
+		}
+
+		.challenge_3{
+
+			background: url("../../assets/img/challenge_3_bg.jpg") no-repeat;
+			background-size: cover;	
+
+		}
+	}
+
+}
+
+@media only screen and (max-width: 960px){
+
+	
+	.container{
+
+		width: 100% !important;
+
+		.foto{
+
+			width: 30% !important;
+			height: auto !important;
+			//display: block;
+
+		}
+
+	}
+
+
+}
+@media only screen and (max-width: 800px){
+
+	//statistieken
+	.statistieken{
+
+		height: 600px;
+		background: url("../../assets/img/statistieken_bg.jpg") no-repeat;
+		background-size: cover;
+
+
+
+	}
+
+	.center{
+
+		
+
+
+		article{
+
+			width: 100% !important;
+
+		}
+
+		.lijn{
+
+			margin-top: 10px;
+			width: 18% !important;
+
+
+		}
+
+
+	}
+
+}
+
+@media only screen and (max-width: 780px){
+
+
+	//menu
+
+	.menu_header, nav{
+
+		.logo{
+
+			margin-left: 150px;
+
+		}
+
+		ul{
+
+			display: none;
+
+		}
+
+	}
+
+
+}
 
 

@@ -60,7 +60,7 @@ html {
 
 body {
   color: #FFFFFF;
-  background-color: #ff0000;
+  background-color: #0E233E;
   font-family: helvetica;
   font-size: 2.4em;
   line-height: 1.9em;
@@ -81,19 +81,38 @@ body {
   background: url("../../assets/img/Header.jpg") no-repeat;
   background-size: cover;
 }
-.header h1 {
-  position: absolute;
-  margin-top: 290px;
-  margin-left: 720px;
+.header .content_pint {
+  visibility: hidden;
+}
+.header .content_header {
+  width: 1150px;
+  height: 510px;
+  margin: 0 auto;
+  padding-top: 187px;
+}
+.header .content_header .handen {
+  width: 562px;
+  height: 514px;
+  float: left;
+  background: url("../../assets/img/Header_handen.png") no-repeat;
+}
+.header .content_header h1 {
+  float: left;
+  margin-top: 50px;
+  margin-left: 20px;
   width: 550px;
   height: 110px;
-  text-indent: -9999999px;
-  background: url("../../assets/img/Header_titel.png") no-repeat;
+  font-family: aachen;
+  font-size: 2.4em;
+  -webkit-font-smoothing: antialiased;
 }
-.header .meer_info {
-  position: absolute;
-  margin-top: 420px;
-  margin-left: 730px;
+.header .content_header h1 span {
+  font-size: 0.7em;
+}
+.header .content_header .meer_info {
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
   width: 200px;
   height: 50px;
   border: 3px solid #b8974b;
@@ -113,10 +132,20 @@ body {
   float: right;
   margin-top: 40px;
   margin-right: 100px;
+  font-family: aachen;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
 }
 .menu_header ul li {
   float: left;
   margin-left: 30px;
+}
+.menu_header ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.menu_header ul li a:hover {
+  color: #B89655;
 }
 
 nav {
@@ -136,10 +165,20 @@ nav ul {
   float: right;
   margin-top: 20px;
   margin-right: 100px;
+  font-family: aachen;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
 }
 nav ul li {
   float: left;
   margin-left: 30px;
+}
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: #B89655;
 }
 
 .video {
@@ -170,72 +209,281 @@ nav ul li {
 }
 .challenges article h1 {
   text-align: center;
+  font-family: aachen;
+  font-size: 1.2em;
+  -webkit-font-smoothing: antialiased;
 }
 .challenges article p {
   width: 380px;
   margin: 0 auto;
   margin-top: 20px;
+  font-size: .8em;
   line-height: 30px;
   text-align: center;
 }
-.challenges .challenge_1 {
+
+.center_challenges {
+  margin: 0 auto;
+  width: 1440px;
+}
+.center_challenges .challenge_1 {
   background: url("../../assets/img/challenge_1.jpg") no-repeat;
 }
-.challenges .challenge_1 .badge_1 {
-  width: 340px;
-  height: 287px;
+.center_challenges .challenge_1 .badge_1 {
+  width: 320px;
+  height: 270px;
   background: url("../../assets/img/badge_1.png") no-repeat;
-  margin-left: 85px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 72px;
 }
-.challenges .challenge_2 {
+.center_challenges .challenge_2 {
   background: url("../../assets/img/challenge_2.jpg") no-repeat;
 }
-.challenges .challenge_2 .badge_2 {
-  width: 301px;
-  height: 259px;
+.center_challenges .challenge_2 .badge_2 {
+  width: 320px;
+  height: 270px;
   background: url("../../assets/img/badge_2.png") no-repeat;
-  margin-left: 90px;
-  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 72px;
 }
-.challenges .challenge_3 {
+.center_challenges .challenge_3 {
   background: url("../../assets/img/challenge_3.jpg") no-repeat;
 }
-.challenges .challenge_3 .badge_3 {
+.center_challenges .challenge_3 .badge_3 {
   width: 320px;
-  height: 266px;
+  height: 270px;
   background: url("../../assets/img/badge_3.png") no-repeat;
-  margin-left: 110px;
-  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 72px;
 }
 
 .app {
   height: 810px;
-  background: url("../../assets/img/iphone.png") no-repeat 40px 220px, url("../../assets/img/app.jpg") no-repeat;
-  background-size: 50% , cover;
+  background: url("../../assets/img/iphone.png") no-repeat 40px bottom, url("../../assets/img/app_2.jpg") no-repeat;
+  background-size: 45% , cover;
 }
 .app .app_text {
   width: 520px;
   height: 300px;
-  margin-left: 740px;
+  float: right;
+  margin-right: 140px;
   padding-top: 180px;
 }
 .app .app_text h1 {
   text-align: center;
+  font-family: aachen;
+  font-size: 2.2em;
+  -webkit-font-smoothing: antialiased;
 }
 .app .app_text .lijn {
   width: 270px;
   height: 6px;
   background-color: #ffffff;
   margin-left: 120px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 .app .app_text p {
   line-height: 30px;
 }
 .app .app_text .app_store {
-  width: 119;
+  width: 119px;
   height: 40px;
   background: url("../../assets/img/app_store.png") no-repeat;
-  margin-top: 10px;
+  margin-top: 25px;
+}
+
+.statistieken {
+  height: 220px;
+  background: url("../../assets/img/statistieken.jpg") no-repeat;
+  background-size: cover;
+}
+.statistieken .center {
+  width: 1260px;
+  margin: 0 auto;
+}
+.statistieken .center article {
+  float: left;
+  width: 400px;
+  color: #B89655;
+}
+.statistieken .center article p {
+  margin-top: 70px;
+  text-align: center;
+  font-family: aachen;
+  font-size: 1.5em;
+  -webkit-font-smoothing: antialiased;
+}
+.statistieken .center article h1 {
+  text-align: center;
+  font-family: aachen;
+  font-size: 1.2em;
+  -webkit-font-smoothing: antialiased;
+}
+.statistieken .center article .lijn {
+  width: 130px;
+  height: 4px;
+  background-color: #B89655;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.geuploade_fotos {
+  height: 1200px;
+  background: url("../../assets/img/fotos.jpg") no-repeat;
+  background-size: cover;
+}
+.geuploade_fotos h1 {
+  padding-top: 70px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: aachen;
+  font-size: 2.2em;
+  -webkit-font-smoothing: antialiased;
+}
+.geuploade_fotos .lijn {
+  width: 270px;
+  height: 6px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+.geuploade_fotos .container {
+  width: 960px;
+  height: 960px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.geuploade_fotos .container .foto {
+  width: 294px;
+  height: 294px;
+  border: 8px solid #ffffff;
+  margin: 4px 5px;
+}
+
+footer {
+  height: 30px;
+  background-color: #FBFAF6;
+  color: black;
+  font-size: 0.5em;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1440px) {
+  .center_challenges {
+    width: 100%;
+  }
+  .center_challenges article {
+    width: 33%;
+  }
+  .center_challenges article p {
+    width: 80%;
+  }
+
+  .center {
+    width: 100% !important;
+  }
+  .center article {
+    width: 33% !important;
+  }
+  .center .lijn {
+    width: 30% !important;
+  }
+}
+@media only screen and (max-width: 1220px) {
+  .app {
+    height: 810px;
+    background: url("../../assets/img/app_2.jpg") no-repeat;
+    background-size: cover;
+  }
+  .app .app_text {
+    float: none;
+    margin: 0 auto;
+  }
+  .app .app_text p {
+    text-align: center;
+  }
+  .app .app_text .app_store {
+    margin: 0 auto;
+    margin-top: 25px;
+  }
+}
+@media only screen and (max-width: 1095px) {
+  .content_header {
+    display: none;
+  }
+
+  .content_pint {
+    visibility: visible !important;
+  }
+  .content_pint .pint {
+    width: 417px;
+    height: 413px;
+    background: url("../../assets/img/Header_pint.png") no-repeat;
+  }
+  .content_pint h1 {
+    float: left;
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 550px;
+    height: 110px;
+    font-family: aachen;
+    font-size: 2.4em;
+    -webkit-font-smoothing: antialiased;
+  }
+  .content_pint h1 span {
+    font-size: 0.7em;
+  }
+
+  .challenges article {
+    width: 100%;
+    height: 600px;
+  }
+
+  .center_challenges .challenge_1 {
+    background: url("../../assets/img/challenge_1_bg.jpg") no-repeat;
+    background-size: cover;
+  }
+  .center_challenges .challenge_2 {
+    background: url("../../assets/img/challenge_2_bg.jpg") no-repeat;
+    background-size: cover;
+  }
+  .center_challenges .challenge_3 {
+    background: url("../../assets/img/challenge_3_bg.jpg") no-repeat;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .container {
+    width: 100% !important;
+  }
+  .container .foto {
+    width: 30% !important;
+    height: auto !important;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .statistieken {
+    height: 600px;
+    background: url("../../assets/img/statistieken_bg.jpg") no-repeat;
+    background-size: cover;
+  }
+
+  .center article {
+    width: 100% !important;
+  }
+  .center .lijn {
+    margin-top: 10px;
+    width: 18% !important;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .menu_header .logo, nav .logo {
+    margin-left: 150px;
+  }
+  .menu_header ul, nav ul {
+    display: none;
+  }
 }
