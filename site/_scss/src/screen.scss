@@ -38,6 +38,7 @@ body{
 	height: 700px;
 	background: url("../../assets/img/Header.jpg") no-repeat;
 	background-size: cover;
+	background-position: center;
 
 	.content_pint{
 		
@@ -96,7 +97,7 @@ body{
 
 		}
 
-		.meer_info{
+		p{
 
 			//position: absolute;
 			// margin-top: 420px;
@@ -112,6 +113,13 @@ body{
 			border: 3px solid #b8974b;
 
 			text-align: center;
+
+			a{
+
+				text-decoration: none;
+				color:white;
+
+			}
 
 
 		}
@@ -366,6 +374,7 @@ nav{
 	background: url("../../assets/img/iphone.png") no-repeat 40px bottom ,url("../../assets/img/app_2.jpg") no-repeat;
 	background-size: 45% , cover;
 
+
 	.app_text{
 
 
@@ -411,11 +420,15 @@ nav{
 
 		.app_store{
 
-			width: 119px;
-			height: 40px;
-			background: url("../../assets/img/app_store.png") no-repeat;
-
 			margin-top: 25px;
+
+
+			a{
+
+				padding: 30px 120px 30px 30px ;
+				background: url("../../assets/img/app_store.png") no-repeat;
+
+			}
 
 		}
 
@@ -486,6 +499,7 @@ nav{
 	height: 1200px;
 	background: url("../../assets/img/fotos.jpg") no-repeat;
 	background-size: cover;
+	background-position: center;
 
 	h1{
 
@@ -646,6 +660,12 @@ footer{
 	.content_pint{
 
 		visibility: visible !important;
+		padding-top: 50px;
+
+		width: 530px;
+		height: 640px;
+
+		margin: 0 auto;
 
 		.pint{
 
@@ -653,17 +673,17 @@ footer{
 			height: 413px;
 			background: url("../../assets/img/Header_pint.png") no-repeat;
 
+			margin: 0 auto;
+
 		}
 
 		h1{
 
-			float: left;
-			margin-top: 50px;
-			margin-left: 20px;
-			
+			width: 520px;
+			height: 130px;
 
-			width: 550px;
-			height: 110px;
+			margin: 0 auto;
+			margin-top: 20px;
 
 			font-family: aachen;
 			font-size: 2.4em;
@@ -673,14 +693,31 @@ footer{
 			span{
 
 				font-size: 0.7em;
+				margin-left: 45px;
 				
 
 			}
 
 		}
 
-		.meer_info{
+		p{
 
+			
+
+			width: 200px;
+			height: 50px;
+			border: 3px solid #b8974b;
+
+			margin: 0 auto;
+
+			text-align: center;
+
+			a{
+
+				text-decoration: none;
+				color:white;
+
+			}
 
 
 		}
@@ -788,11 +825,11 @@ footer{
 
 	//menu
 
-	.menu_header, nav{
+	.menu_header{
 
 		.logo{
 
-			margin-left: 150px;
+			margin-left: 160px;
 
 		}
 
@@ -804,7 +841,116 @@ footer{
 
 	}
 
+	nav{
+
+		display: none;
+
+	}
+
 
 }
 
+@media only screen and (max-width: 600px){
+
+	//header
+
+	.header{
+
+		width: 100%;
+
+		.content_pint{
+
+			width: 400px;
+			margin: 0 auto;
+
+
+			.pint{
+
+				background-size: 80%;
+				margin-left: 45px;
+				margin-top: 50px;
+
+			}
+
+			h1{
+
+				font-size: 1.6em;
+				margin-top: -70px;
+				margin-left: 40px;
+
+				line-height: 30px;
+				
+
+				span{
+
+					font-size: 0.7em;
+					
+					margin-left: 40px;
+
+				}
+
+			}
+
+			.meer_info{
+
+				margin-top: -40px;
+				margin-left: 110px;
+
+			}
+		}
+
+	}
+
+	//app
+
+	.app{
+
+		width: 100%;
+
+		.app_text{
+
+			width: 80%;
+
+			h1{
+
+				font-size: 140%;
+
+			}
+
+			.lijn{
+
+				width: 50%;
+				margin: 0 auto;
+				margin-bottom: 20px;
+
+			}
+
+			p{
+
+
+				font-size: 80%;
+
+			}
+
+			.app_store{
+
+
+				
+				margin: 0 auto;
+				margin-top: 25px;
+
+
+			}
+
+		}
+
+	}
+
+
+	//foto
+
+
+	
+
+}
 
