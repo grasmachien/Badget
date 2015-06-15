@@ -6,6 +6,13 @@ require_once WWW_ROOT . 'php-image-resize' . DIRECTORY_SEPARATOR . 'ImageResize.
 
 $itemsDAO = new itemsDAO();
 
+// GET     /photos
+$app->get('/photos/?',function() use ($itemsDAO){
+    header("Content-Type: application/json");
+    echo json_encode($itemsDAO->selectAllPhotos(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
 
 $app->post('/photos/?', function() use ($app, $itemsDAO){
 

@@ -10,7 +10,15 @@ class ItemsDAO extends DAO {
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }    
+  }  
+
+  public function selectAllPhotos() {
+    $sql = "SELECT * 
+    				FROM `badget_img`";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }     
 
 	public function selectById($id) {
 		$sql = "SELECT * 

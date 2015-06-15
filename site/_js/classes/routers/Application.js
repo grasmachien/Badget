@@ -1,17 +1,21 @@
 
+var HomeView = require('../views/HomeView.js');
+var FotoCollection = require('../collections/FotoCollection.js');
+
 var Application = Backbone.Router.extend({
 
 
 	routes: {
 		//pagina: functie
 
+		"home": "home",
 		"*actions": "default"
 		
 	},
 
 	empty: function(){
 		//container clearen
-		$('.container-fluid').empty();
+		$('.container').empty();
 	},
 
 	default: function(){
@@ -19,6 +23,13 @@ var Application = Backbone.Router.extend({
 		this.navigate("home", {trigger: true});
 		
 	},
+
+	home: function(){
+
+		this.empty();
+		this.home = new HomeView();
+		$('.container').append(this.home.render().el);
+	}
 
 
 
