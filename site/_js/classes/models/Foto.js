@@ -2,7 +2,7 @@ var Foto = Backbone.Model.extend({
 
 	defaults: {
 		"username": "Brodelet",
-		"path": "uploads/5575be50c1363.png",
+		"path": "assets/img/test_foto.jpg",
 	},
 
 	urlRoot: 'api/photos',

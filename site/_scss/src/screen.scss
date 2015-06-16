@@ -17,6 +17,8 @@ body{
 
 }
 
+
+
 .display_non{
 
 	display: none;
@@ -52,7 +54,7 @@ body{
 		height: 510px;
 
 		margin: 0 auto;
-		padding-top: 187px;
+		padding-top: 188px;
 
 
 		.handen{
@@ -60,6 +62,8 @@ body{
 			
 			width: 562px;
 			height: 514px;
+
+
 
 			float: left;
 
@@ -186,13 +190,17 @@ body{
 }
 nav{
 
-
+	position: fixed;
+	top: 0px;
+	width: 100%;
 	height: 80px;
 	background-color: #0e233e;
 
 	h1{
 
-		position: absolute;
+		a{
+
+			position: absolute;
 
 		text-indent: -999999px;
 		width: 101px;
@@ -201,6 +209,10 @@ nav{
 
 		margin-left: 100px;
 		margin-top: 10px;
+
+		}
+
+		
 
 	}
 
@@ -231,6 +243,15 @@ nav{
 				&:hover{
 
 					color:#B89655;
+					text-decoration: none;
+
+
+				}
+
+				&:active{
+
+					color:#ffffff;
+					text-decoration: none;
 
 				}
 
@@ -427,6 +448,7 @@ nav{
 
 				padding: 30px 120px 30px 30px ;
 				background: url("../../assets/img/app_store.png") no-repeat;
+				background-position: center;
 
 			}
 
@@ -496,7 +518,7 @@ nav{
 
 .geuploade_fotos{
 
-	height: 1200px;
+	//height: 1200px;
 	background: url("../../assets/img/fotos.jpg") no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -524,21 +546,35 @@ nav{
 
 	.container{
 
-		width: 960px;
-		height: 960px;
+		.bla{
 
-		margin: 0 auto;
-		margin-top: 40px;
+			width: 960px;
+			//height: 960px;
 
-		
-		.foto{
 
-			width: 294px;
-			height: 294px;
 
-			border: 8px solid #ffffff;
-			margin: 4px 5px;
+			margin: 0 auto;
+			margin-top: 40px;
+			margin-bottom: 10px;
 
+			.foto_item{
+
+				float: left;
+
+				width: 294px;
+				 
+				border: 8px solid #ffffff;	
+				
+				margin: 4px 5px;
+
+				.imgmask{
+					
+					overflow: hidden;
+					height: 294px !important;
+
+				}
+
+			}
 
 		}
 
@@ -632,7 +668,7 @@ footer{
 
 
 				
-				margin: 0 auto;
+				//padding-left: 250px;
 				margin-top: 25px;
 
 
@@ -764,18 +800,33 @@ footer{
 
 }
 
-@media only screen and (max-width: 960px){
+@media only screen and (max-width: 995px){
 
 	
-	.container{
+	.geuploade_fotos{
 
-		width: 100% !important;
+		width: 100%;
 
-		.foto{
+		.bla{
 
-			width: 30% !important;
-			height: auto !important;
-			//display: block;
+			width: 100% !important;
+			height: auto;
+			//background-color: red;
+			
+
+			.foto_item{
+
+				//display: none;
+				width: 50%;
+
+				.imgmask{
+
+					width: 100%;
+					height: auto;
+
+				}
+
+			}
 
 		}
 
@@ -844,6 +895,50 @@ footer{
 	nav{
 
 		display: none;
+
+	}
+
+
+}
+
+@media only screen and (max-width: 640px){
+
+
+	.geuploade_fotos{
+
+	
+
+		h1{
+
+			font-size: 1.5em;
+
+		}
+
+		.lijn{
+
+			width: 40%;
+
+		}
+
+	}
+	
+	.geuploade_fotos{
+
+		width: 100%;
+
+		.bla{
+
+			width: 80%;
+			
+
+			.foto_item{
+
+				width: 50%;
+
+
+			}
+
+		}
 
 	}
 
@@ -936,7 +1031,7 @@ footer{
 
 
 				
-				margin: 0 auto;
+				padding-left: 80px;
 				margin-top: 25px;
 
 

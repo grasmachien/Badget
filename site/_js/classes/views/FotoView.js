@@ -3,6 +3,7 @@ var template = require('../../../_hbs/foto.hbs');
 var FotoView = Backbone.View.extend({
 
 	template: template,
+	className: "foto_item",
 
 
 	events: {
