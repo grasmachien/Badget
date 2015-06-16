@@ -15,6 +15,24 @@ $app->get('/data/lopentop/?', function() use ($itemsDAO){
     exit();
 });
 
+$app->get('/data/totalbier/?', function() use ($itemsDAO){
+    header("Content-Type: application/json");
+    echo json_encode($itemsDAO->selectTotalBier(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
+$app->get('/data/selectTotalPunten/?', function() use ($itemsDAO){
+    header("Content-Type: application/json");
+    echo json_encode($itemsDAO->selectTotalPunten(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
+$app->get('/data/selectTotalPhotos/?', function() use ($itemsDAO){
+    header("Content-Type: application/json");
+    echo json_encode($itemsDAO->selectTotalPhotos(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
 
 //POST -> /tweets/
 $app->post('/data/?', function() use ($app, $itemsDAO){

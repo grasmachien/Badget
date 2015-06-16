@@ -12,13 +12,55 @@ class ItemsDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }  
 
+
+
   public function selectAllPhotos() {
     $sql = "SELECT * 
     				FROM `badget_img`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }     
+  } 
+
+  public function selectTotalBier() {
+		$sql = "SELECT SUM(score) 
+				FROM badget_data 
+				WHERE spel = :spel";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':spel', "snellerdanjepint");
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if($result){
+			return $result;
+		}
+		return;
+	}
+
+	public function selectTotalPunten() {
+		$sql = "SELECT SUM(score) 
+				FROM badget_data 
+				WHERE spel = :spel";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':spel', "versus");
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if($result){
+			return $result;
+		}
+		return;
+	}     
+
+	public function selectTotalPhotos() {
+		$sql = "SELECT COUNT(id)
+				FROM badget_img";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if($result){
+			return $result;
+		}
+		return;
+	}   
 
 	public function selectById($id) {
 		$sql = "SELECT * 

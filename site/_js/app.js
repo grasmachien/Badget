@@ -9,6 +9,31 @@ function init() {
 	//backbone gaat router opstarten:
 	Backbone.history.start();
 
+    $.get( "http://192.168.1.6/2014-2015/MAIV/Badget/Badget/site/api/data/totalbier", function(data) {
+
+            var score = data["SUM(score)"];
+            var punten = document.querySelector(".bier").innerHTML = score + "cl";
+
+
+    });
+
+    $.get( "http://192.168.1.6/2014-2015/MAIV/Badget/Badget/site/api/data/selectTotalPunten", function(data) {
+
+
+            var bier = data["SUM(score)"];
+            var punten1 = document.querySelector(".punten").innerHTML = bier;
+
+
+    });
+
+    $.get( "http://192.168.1.6/2014-2015/MAIV/Badget/Badget/site/api/data/selectTotalPhotos", function(data) {
+
+            var fotos = data["COUNT(id)"];
+            var punten2 = document.querySelector(".aantalfotos").innerHTML = fotos;
+
+
+    });
+
 
 	window.addEventListener('scroll', function(e){
 
