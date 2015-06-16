@@ -275,7 +275,7 @@ nav ul li a:active {
   margin: 0 auto;
   margin-top: 20px;
   font-size: .8em;
-  line-height: 30px;
+  line-height: 25px;
   text-align: center;
 }
 
@@ -347,10 +347,10 @@ nav ul li a:active {
   line-height: 30px;
 }
 .app .app_text .app_store {
-  margin-top: 25px;
+  margin-top: 5px;
 }
 .app .app_text .app_store a {
-  padding: 30px 120px 30px 30px;
+  padding: 10px 120px 0px 0px;
   background: url("../../assets/img/app_store.png") no-repeat;
   background-position: center;
 }
@@ -579,7 +579,7 @@ footer {
 }
 @media only screen and (max-width: 780px) {
   .menu_header .logo {
-    margin-left: 160px;
+    margin-left: 100px;
   }
   .menu_header ul {
     display: none;
@@ -611,28 +611,25 @@ footer {
   .header {
     width: 100%;
   }
-  .header .content_pint {
-    width: 400px;
-    margin: 0 auto;
-  }
   .header .content_pint .pint {
-    background-size: 80%;
-    margin-left: 45px;
+    background-size: 70%;
+    margin-left: 10px;
     margin-top: 50px;
   }
   .header .content_pint h1 {
-    font-size: 1.6em;
+    width: 70%;
+    font-size: 1.3em;
     margin-top: -70px;
-    margin-left: 40px;
+    margin-left: 20px;
     line-height: 30px;
   }
   .header .content_pint h1 span {
     font-size: 0.7em;
-    margin-left: 40px;
+    margin-left: 20px;
   }
   .header .content_pint .meer_info {
     margin-top: -40px;
-    margin-left: 110px;
+    margin-left: 50px;
   }
 
   .app {

@@ -369,7 +369,7 @@ nav{
 			margin-top: 20px;
 
 			font-size: .8em;
-			line-height: 30px;
+			line-height: 25px;
 
 			text-align: center;
 
@@ -493,12 +493,12 @@ nav{
 
 		.app_store{
 
-			margin-top: 25px;
+			margin-top: 5px;
 
 
 			a{
 
-				padding: 30px 120px 30px 30px ;
+				padding: 10px 120px 0px 0px ;
 				background: url("../../assets/img/app_store.png") no-repeat;
 				background-position: center;
 
@@ -959,7 +959,7 @@ footer{
 
 		.logo{
 
-			margin-left: 160px;
+			margin-left: 100px;
 
 		}
 
@@ -1034,23 +1034,24 @@ footer{
 
 		.content_pint{
 
-			width: 400px;
-			margin: 0 auto;
+			//width: 400px;
+			//margin: 0 auto;
 
 
 			.pint{
 
-				background-size: 80%;
-				margin-left: 45px;
+				background-size: 70%;
+				margin-left: 10px;
 				margin-top: 50px;
 
 			}
 
 			h1{
 
-				font-size: 1.6em;
+				width: 70%;
+				font-size: 1.3em;
 				margin-top: -70px;
-				margin-left: 40px;
+				margin-left: 20px;
 
 				line-height: 30px;
 				
@@ -1059,7 +1060,7 @@ footer{
 
 					font-size: 0.7em;
 					
-					margin-left: 40px;
+					margin-left: 20px;
 
 				}
 
@@ -1068,7 +1069,7 @@ footer{
 			.meer_info{
 
 				margin-top: -40px;
-				margin-left: 110px;
+				margin-left: 50px;
 
 			}
 		}
