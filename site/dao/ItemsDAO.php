@@ -16,7 +16,7 @@ class ItemsDAO extends DAO {
 
   public function selectAllPhotos() {
     $sql = "SELECT * 
-    				FROM `badget_img`";
+    				FROM `badget_img` ORDER BY creation_date DESC LIMIT 9";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

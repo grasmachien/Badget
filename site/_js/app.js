@@ -13,6 +13,24 @@ function init() {
 	//backbone gaat router opstarten:
 	Backbone.history.start();
 
+    $.get( "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data/totalbier", function(data) {
+
+            var score = data["SUM(score)"];
+            var punten = document.querySelector(".bier").innerHTML = score + "cl";
+    });
+
+    $.get( "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data/selectTotalPunten", function(data) {
+
+            var bier = data["SUM(score)"];
+            var punten1 = document.querySelector(".punten").innerHTML = bier;
+    });
+
+    $.get( "http://student.howest.be/matthias.brodelet/20142015/MA4/BADGET/api/data/selectTotalPhotos", function(data) {
+
+            var fotos = data["COUNT(id)"];
+            var punten2 = document.querySelector(".aantalfotos").innerHTML = fotos;
+    });
+
 
 
 
