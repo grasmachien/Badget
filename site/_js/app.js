@@ -1,6 +1,10 @@
 var Handlebars = require("hbsfy/runtime");
 var Application = require("./classes/routers/Application.js");
 
+var playvideo = document.querySelector('.button_video');
+var hiddenvideo = document.querySelector('.videoverlay');
+var sluit = document.querySelector('.sluit');
+
 function init() {
 
 	//nieuwe router aanmaken:
@@ -8,6 +12,10 @@ function init() {
 
 	//backbone gaat router opstarten:
 	Backbone.history.start();
+
+
+    playvideo.addEventListener('click', clickhandlervideo);
+    sluit.addEventListener('click', sluitvideo);
 
 
 	window.addEventListener('scroll', function(e){
@@ -58,6 +66,35 @@ function init() {
             scrollTop: $(".geuploade_fotos").offset().top - 80
         }, 1000);
 	});	
+
+
+    function clickhandlervideo(e){
+        e.preventDefault();
+
+        console.log("klik");
+
+        
+
+        hiddenvideo.style.display = "inline";
+        hiddenvideo.style.opacity = 0;
+        
+        window.setTimeout(function() {
+          $( hiddenvideo ).fadeTo( "fast", 1 );
+        }, 300);
+    }
+
+    function sluitvideo(e){
+        e.preventDefault();
+
+         $( hiddenvideo ).fadeTo( "fast", 0 );
+
+        
+        
+        window.setTimeout(function() {
+            hiddenvideo.style.display = "none";
+        }, 500);
+
+    }
 
 }
 

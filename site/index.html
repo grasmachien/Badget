@@ -75,6 +75,23 @@
 
   <div class="dummy_div">&nbsp;</div>
 
+  <div class="videoverlay">
+    <div class="vidwrapper">
+      <video controls="on" preload="auto" width="900" height="506" >
+        <source src="assets/video/main.webm" type="video/webm"/>
+        <source src="assets/video/main.mp4" type="video/mp4"/>
+        <source src="assets/video/main.ogv" type="video/ogv"/>
+        <object data="player.swf" type="application/x-shockwave-flash">
+          <param name="allowfullscreen" value="true">
+          <param name="allowscriptacces" value="always">
+          <param name="flashvars" value="file=video/MOV.mp4">
+          <!--[if IE]> <param name="movie" value="player.swf"> <![endif]--> 
+        </object>
+      </video>
+      <a href="#" class="sluit">Sluiten</a>
+    </div>
+  </div>
+
   <section class="video">
 
     <header class="display_non">
